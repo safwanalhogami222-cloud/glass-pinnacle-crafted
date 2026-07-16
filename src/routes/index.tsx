@@ -313,6 +313,18 @@ function Hero() {
 }
 
 /* ---------------- STATS ---------------- */
+function StatItem({ s, i, inView }: { s: (typeof STATS)[number]; i: number; inView: boolean }) {
+  const n = useCount(s.value, inView, 1400 + i * 200);
+  return (
+    <div className="text-center">
+      <div className="text-3xl sm:text-5xl font-black text-gold-gradient" style={{ fontFamily: "var(--font-display)" }}>
+        {n}{s.suffix}
+      </div>
+      <div className="mt-2 text-xs sm:text-sm text-white/70">{s.label}</div>
+    </div>
+  );
+}
+
 function Stats() {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
@@ -320,17 +332,9 @@ function Stats() {
     <section ref={ref} className="relative -mt-16 z-20 px-4 sm:px-6">
       <div className="mx-auto max-w-6xl rounded-3xl p-6 sm:p-10" style={{ background: "linear-gradient(135deg, #111 0%, #1a1a1a 100%)", boxShadow: "var(--shadow-luxury)" }}>
         <div className="grid grid-cols-2 gap-6 sm:grid-cols-4 sm:gap-8">
-          {STATS.map((s, i) => {
-            const n = useCount(s.value, inView, 1400 + i * 200);
-            return (
-              <div key={s.label} className="text-center">
-                <div className="text-3xl sm:text-5xl font-black text-gold-gradient" style={{ fontFamily: "var(--font-display)" }}>
-                  {n}{s.suffix}
-                </div>
-                <div className="mt-2 text-xs sm:text-sm text-white/70">{s.label}</div>
-              </div>
-            );
-          })}
+          {STATS.map((s, i) => (
+            <StatItem key={s.label} s={s} i={i} inView={inView} />
+          ))}
         </div>
       </div>
     </section>
