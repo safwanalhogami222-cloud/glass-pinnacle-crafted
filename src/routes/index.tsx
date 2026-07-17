@@ -158,28 +158,25 @@ function Nav() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
       <div className={`mx-auto max-w-7xl px-4 sm:px-6 transition-all duration-500 ${scrolled ? "" : ""}`}>
         <div className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 ${scrolled ? "glass-dark shadow-2xl" : "bg-transparent"}`}>
-          <a href="#top" className="flex items-center gap-2">
-            <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
-              <span className="font-black text-[#111]">ر</span>
-            </div>
-            <div className="min-w-0">
-              <div className={`font-display text-sm sm:text-base font-extrabold truncate ${scrolled ? "text-white" : "text-white drop-shadow"}`}>الرواد</div>
+          <a href="#top" className="flex items-center gap-3 order-2">
+            <div className="min-w-0 text-right">
+              <div className={`font-display text-base sm:text-lg font-extrabold truncate text-gold-gradient`}>الرواد</div>
               <div className={`text-[10px] sm:text-[11px] ${scrolled ? "text-white/60" : "text-white/70"}`}>للزجاج السيكوريت</div>
             </div>
+            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
+              <Building2 className="h-5 w-5 text-[#111]" />
+            </div>
           </a>
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-1 order-1">
             {links.map((l) => (
               <a key={l.href} href={l.href} className="rounded-full px-4 py-2 text-sm text-white/85 hover:text-white hover:bg-white/10 transition">
                 {l.label}
               </a>
             ))}
           </nav>
-          <div className="hidden md:flex items-center gap-2">
-            <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 rounded-full btn-outline-light px-4 py-2 text-sm">
-              <Phone className="h-4 w-4" /> اتصال
-            </a>
-            <a href="#contact" className="inline-flex items-center gap-2 rounded-full btn-gold px-5 py-2.5 text-sm">
-              عرض سعر مجاني
+          <div className="hidden md:flex items-center gap-2 order-0">
+            <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 rounded-full btn-gold px-5 py-2.5 text-sm" dir="ltr">
+              <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
             </a>
           </div>
           <button
