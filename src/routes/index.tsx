@@ -26,9 +26,9 @@ export const Route = createFileRoute("/")({
 });
 
 const BRAND = "الرواد للزجاج السيكوريت";
-const PHONE = "+966500000000";
-const PHONE_DISPLAY = "0500 000 000";
-const WHATSAPP = "966500000000";
+const PHONE = "+966501910923";
+const PHONE_DISPLAY = "0501910923";
+const WHATSAPP = "966501910923";
 const EMAIL = "info@alrowad-glass.sa";
 
 const CITIES = ["الدمام", "الخبر", "القطيف", "الظهران", "الجبيل", "المنطقة الشرقية"];
