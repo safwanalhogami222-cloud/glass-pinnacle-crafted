@@ -29,13 +29,7 @@ export function Nav() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 ${scrolled ? "glass-dark shadow-2xl" : "bg-transparent"}`}>
           <Link to="/" className="flex items-center gap-3 order-2">
-            <div className="min-w-0 text-right">
-              <div className="font-display text-base sm:text-lg font-extrabold truncate text-gold-gradient">الرواد</div>
-              <div className="text-[10px] sm:text-[11px] text-white/70">للزجاج السيكوريت</div>
-            </div>
-            <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
-              <Building2 className="h-5 w-5 text-[#111]" />
-            </div>
+            <img src={logo.url} alt="الرواد للزجاج السيكوريت" className="h-12 sm:h-14 w-auto object-contain" />
           </Link>
 
           <nav className="hidden md:flex items-center gap-1 order-1">
