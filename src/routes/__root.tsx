@@ -143,7 +143,14 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-dvh bg-background text-foreground">
+        <Nav />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+        <FloatingActions />
+      </div>
     </QueryClientProvider>
   );
 }
