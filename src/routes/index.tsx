@@ -327,10 +327,11 @@ function Hero() {
 /* ---------------- STATS ---------------- */
 function StatItem({ s, i, inView }: { s: (typeof STATS)[number]; i: number; inView: boolean }) {
   const n = useCount(s.value, inView, 1400 + i * 200);
+  const display = s.text ? s.text : `${n}${s.suffix}`;
   return (
     <div className="text-center">
       <div className="text-3xl sm:text-5xl font-black text-gold-gradient" style={{ fontFamily: "var(--font-display)" }}>
-        {n}{s.suffix}
+        {display}
       </div>
       <div className="mt-2 text-xs sm:text-sm text-white/70">{s.label}</div>
     </div>
