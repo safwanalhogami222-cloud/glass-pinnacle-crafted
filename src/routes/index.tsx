@@ -432,6 +432,47 @@ function WhyUs() {
   );
 }
 
+/* ---------------- PROCESS ---------------- */
+function Process() {
+  return (
+    <section id="process" className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
+      <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(1000px circle at 50% 0%, oklch(0.75 0.14 82 / 0.08), transparent 60%)" }} />
+      <div className="mx-auto max-w-7xl">
+        <motion.div {...fadeUp()} className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-semibold">
+            <ClipboardList className="h-3.5 w-3.5 text-[color:var(--gold)]" /> خطوات العمل
+          </div>
+          <h2 className="section-title">من التواصل <span className="text-gold-gradient">حتى التسليم</span></h2>
+          <p className="mt-4 text-muted-foreground">رحلة واضحة ومنظمة تضمن لك تجربة مريحة ونتيجة تليق بك.</p>
+        </motion.div>
+
+        <div className="relative mt-16">
+          <div className="absolute top-8 right-0 left-0 hidden lg:block h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.75 0.14 82 / 0.4), transparent)" }} />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {STEPS.map((s, i) => (
+              <motion.div
+                key={s.title}
+                {...fadeUp(i * 0.08)}
+                className="group relative rounded-2xl border border-border bg-card p-6 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--gold)]"
+                style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}
+              >
+                <div className="relative mx-auto grid h-16 w-16 place-items-center rounded-2xl" style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}>
+                  <s.icon className="h-7 w-7 text-[#111]" strokeWidth={1.8} />
+                  <span className="absolute -top-2 -left-2 grid h-7 w-7 place-items-center rounded-full bg-[#111] text-[11px] font-black text-[color:var(--gold)]" dir="ltr">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-bold">{s.title}</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 /* ---------------- PROJECTS ---------------- */
 function Projects() {
   const [filter, setFilter] = useState("الكل");
