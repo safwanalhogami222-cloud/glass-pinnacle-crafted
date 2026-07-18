@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://glass-pinnacle-crafted.lovable.app/sitemap.xml

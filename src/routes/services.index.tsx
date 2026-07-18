@@ -59,8 +59,8 @@ function ServicesIndex() {
                   <h2 className="text-xl font-bold">{s.title}</h2>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.short}</p>
                   <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--gold)]">
-                    اقرأ المزيد
-                    <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+                    <span>تفاصيل خدمة {s.title}</span>
+                    <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
                   </div>
                 </div>
               </Link>
