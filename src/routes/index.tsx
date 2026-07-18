@@ -5,7 +5,9 @@ import {
   Phone, Mail, MapPin, MessageCircle, Menu, X, ChevronDown,
   ShieldCheck, Wrench, Clock, BadgeDollarSign, Sparkles, Search,
   Building2, DoorOpen, Waves, Grid3x3, Frame, Briefcase,
-  MoveHorizontal, Layers, Table as TableIcon, Store, Star, ArrowUpLeft, ArrowLeft
+  MoveHorizontal, Layers, Table as TableIcon, Store, Star, ArrowUpLeft, ArrowLeft,
+  PhoneCall, ClipboardList, PencilRuler, Hammer, CheckCircle2,
+  Instagram, Twitter, Facebook, Youtube
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import pShower from "@/assets/project-shower.jpg";
