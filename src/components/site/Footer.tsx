@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Building2, Facebook, Instagram, Mail, MapPin, MessageCircle, Phone, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone, Twitter, Youtube } from "lucide-react";
 import { BRAND, EMAIL, PHONE, PHONE_DISPLAY, SERVICES_META, WHATSAPP } from "@/lib/site-data";
+import logo from "@/assets/logo.png.asset.json";
 
 const socials = [
   { icon: Instagram, href: "#", label: "Instagram" },
@@ -37,13 +38,7 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
-                <Building2 className="h-6 w-6 text-[#111]" />
-              </div>
-              <div>
-                <div className="font-display font-extrabold text-lg text-gold-gradient">الرواد</div>
-                <div className="text-xs text-white/50">للزجاج السيكوريت</div>
-              </div>
+              <img src={logo.url} alt="الرواد للزجاج السيكوريت" className="h-16 w-auto object-contain" />
             </div>
             <p className="mt-5 text-sm max-w-md leading-relaxed">
               خبراء تفصيل وتركيب الزجاج السيكوريت في المنطقة الشرقية — واجهات، أبواب، شاور، درابزين ومرايا بأعلى معايير الجودة العالمية.
