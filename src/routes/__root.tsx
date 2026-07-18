@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { FloatingActions } from "@/components/site/FloatingActions";
+import { PHONE } from "@/lib/site-data";
 
 const SITE_NAME = "الرواد للزجاج السيكوريت";
 const SITE_DESC =
