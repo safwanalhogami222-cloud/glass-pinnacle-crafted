@@ -671,8 +671,8 @@ function BeforeAfter() {
           </div>
           <div className="absolute inset-y-0" style={{ left: `${pos}%`, transform: "translateX(-50%)" }}>
             <div className="h-full w-[3px]" style={{ background: "var(--gradient-gold)" }} />
-            <div className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full cursor-ew-resize" style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}>
-              <MoveHorizontal className="h-5 w-5 text-[#111]" />
+            <div role="slider" aria-label="اسحب لمشاهدة الفرق قبل وبعد" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(pos)} tabIndex={0} className="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full cursor-ew-resize" style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}>
+              <MoveHorizontal className="h-5 w-5 text-[#111]" aria-hidden="true" />
             </div>
           </div>
           <div className="absolute top-4 right-4 rounded-full glass-dark px-3 py-1 text-xs font-semibold text-white">قبل</div>
