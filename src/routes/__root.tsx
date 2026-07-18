@@ -105,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: SITE_NAME,
           image: "/og.jpg",
           description: SITE_DESC,
-          telephone: "+966500000000",
+          telephone: PHONE,
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
