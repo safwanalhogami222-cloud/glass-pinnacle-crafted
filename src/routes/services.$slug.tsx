@@ -7,8 +7,10 @@ import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { QuoteForm } from "@/components/site/QuoteForm";
 import { BASE_URL, PHONE, PHONE_DISPLAY, SERVICES_META, WHATSAPP } from "@/lib/site-data";
 
+import type { ServiceMeta } from "@/lib/site-data";
+
 export const Route = createFileRoute("/services/$slug")({
-  loader: ({ params }) => {
+  loader: ({ params }): ServiceMeta => {
     const service = SERVICES_META.find((s) => s.slug === params.slug);
     if (!service) throw notFound();
     return service;
