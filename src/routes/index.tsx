@@ -614,35 +614,6 @@ function Projects() {
   );
 }
 
-/* ---------------- CLIENTS / LOGOS ---------------- */
-function Clients() {
-  return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 border-y border-border bg-secondary/40">
-      <div className="mx-auto max-w-7xl">
-        <motion.div {...fadeUp()} className="text-center">
-          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">شركاء النجاح</div>
-          <h3 className="mt-2 text-xl sm:text-2xl font-bold">شركات وعملاء وثقوا بنا</h3>
-        </motion.div>
-        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
-          {CLIENTS.map((c, i) => (
-            <motion.div
-              key={c}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.04 }}
-              className="group grid h-20 place-items-center rounded-xl border border-border bg-card px-4 transition-all hover:border-[color:var(--gold)] hover:-translate-y-0.5"
-            >
-              <span className="font-display font-extrabold text-base sm:text-lg text-muted-foreground transition-colors group-hover:text-gold-gradient group-hover:[background:var(--gradient-gold)] group-hover:[-webkit-background-clip:text] group-hover:[background-clip:text] group-hover:text-transparent">
-                {c}
-              </span>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 
 /* ---------------- BEFORE/AFTER ---------------- */
 function BeforeAfter() {
