@@ -11,6 +11,10 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { Nav } from "@/components/site/Nav";
+import { Footer } from "@/components/site/Footer";
+import { FloatingActions } from "@/components/site/FloatingActions";
+import { PHONE } from "@/lib/site-data";
 
 const SITE_NAME = "الرواد للزجاج السيكوريت";
 const SITE_DESC =
@@ -101,7 +105,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           name: SITE_NAME,
           image: "/og.jpg",
           description: SITE_DESC,
-          telephone: "+966500000000",
+          telephone: PHONE,
           priceRange: "$$",
           address: {
             "@type": "PostalAddress",
@@ -139,7 +143,14 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   return (
     <QueryClientProvider client={queryClient}>
-      <Outlet />
+      <div className="min-h-dvh bg-background text-foreground">
+        <Nav />
+        <main>
+          <Outlet />
+        </main>
+        <Footer />
+        <FloatingActions />
+      </div>
     </QueryClientProvider>
   );
 }

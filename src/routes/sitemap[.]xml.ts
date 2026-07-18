@@ -1,13 +1,22 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-
-const BASE_URL = "";
+import { BASE_URL, SERVICES_META } from "@/lib/site-data";
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async () => {
-        const entries = [{ path: "/", changefreq: "weekly", priority: "1.0" }];
+        const entries: { path: string; changefreq: string; priority: string }[] = [
+          { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/services", changefreq: "monthly", priority: "0.9" },
+          { path: "/gallery", changefreq: "monthly", priority: "0.8" },
+          { path: "/contact", changefreq: "monthly", priority: "0.7" },
+          ...SERVICES_META.map((s) => ({
+            path: `/services/${s.slug}`,
+            changefreq: "monthly",
+            priority: "0.8",
+          })),
+        ];
         const urls = entries
           .map(
             (e) =>
