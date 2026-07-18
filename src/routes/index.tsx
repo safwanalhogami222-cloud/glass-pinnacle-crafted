@@ -133,6 +133,7 @@ function HomePage() {
         <Stats />
         <Services />
         <WhyUs />
+        <Process />
         <Projects />
         <BeforeAfter />
         <Testimonials />
