@@ -151,7 +151,7 @@ function HomePage() {
         <Process />
         <Projects />
         <BeforeAfter />
-        <Clients />
+        
         <Testimonials />
         <About />
         <FaqSection />
