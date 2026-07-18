@@ -82,11 +82,15 @@ const FAQ = [
   { q: "ما هي المدن التي تخدمونها؟", a: "الدمام، الخبر، القطيف، الظهران، الجبيل، وباقي مدن المنطقة الشرقية." },
 ];
 
-const STATS = [
+const STATS: { value: number; suffix: string; label: string; text?: string }[] = [
   { value: 15, suffix: "+", label: "سنة خبرة" },
-  { value: 1200, suffix: "+", label: "مشروع منجز" },
-  { value: 950, suffix: "+", label: "عميل راضٍ" },
-  { value: 6, suffix: "", label: "مدن نخدمها" },
+  { value: 250, suffix: "+", label: "مشروع مكتمل" },
+  { value: 1000, suffix: "+", label: "عميل راضٍ" },
+  { value: 0, suffix: "", label: "ضمان على التركيب", text: "معتمد" },
+];
+
+const CLIENTS = [
+  "أرامكو", "سابك", "المراعي", "الراجحي", "STC", "بن لادن", "معرض الرياض", "نيوم",
 ];
 
 const STEPS = [
