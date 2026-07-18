@@ -160,8 +160,8 @@ function Nav() {
   const links = [
     { href: "#services", label: "خدماتنا" },
     { href: "#projects", label: "أعمالنا" },
+    { href: "#process", label: "خطوات العمل" },
     { href: "#why", label: "لماذا نحن" },
-    { href: "#about", label: "من نحن" },
     { href: "#faq", label: "الأسئلة" },
     { href: "#contact", label: "تواصل" },
   ];
