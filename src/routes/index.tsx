@@ -5,7 +5,9 @@ import {
   Phone, Mail, MapPin, MessageCircle, Menu, X, ChevronDown,
   ShieldCheck, Wrench, Clock, BadgeDollarSign, Sparkles, Search,
   Building2, DoorOpen, Waves, Grid3x3, Frame, Briefcase,
-  MoveHorizontal, Layers, Table as TableIcon, Store, Star, ArrowUpLeft, ArrowLeft
+  MoveHorizontal, Layers, Table as TableIcon, Store, Star, ArrowUpLeft, ArrowLeft,
+  PhoneCall, ClipboardList, PencilRuler, Hammer, CheckCircle2,
+  Instagram, Twitter, Facebook, Youtube
 } from "lucide-react";
 import heroImg from "@/assets/hero.jpg";
 import pShower from "@/assets/project-shower.jpg";
@@ -87,6 +89,14 @@ const STATS = [
   { value: 6, suffix: "", label: "مدن نخدمها" },
 ];
 
+const STEPS = [
+  { icon: PhoneCall, title: "تواصل معنا", desc: "اتصل أو أرسل واتساب وسنرد خلال دقائق." },
+  { icon: ClipboardList, title: "معاينة مجانية", desc: "زيارة الموقع وأخذ المقاسات بدقة." },
+  { icon: PencilRuler, title: "تصميم وعرض سعر", desc: "نقدم لك التصور وعرض سعر شفاف." },
+  { icon: Hammer, title: "التصنيع والتركيب", desc: "تنفيذ احترافي بأيدي فنيين معتمدين." },
+  { icon: CheckCircle2, title: "التسليم والضمان", desc: "تسليم نهائي مع ضمان شامل على الأعمال." },
+];
+
 function useCount(target: number, inView: boolean, duration = 1600) {
   const [n, setN] = useState(0);
   useEffect(() => {
@@ -123,6 +133,7 @@ function HomePage() {
         <Stats />
         <Services />
         <WhyUs />
+        <Process />
         <Projects />
         <BeforeAfter />
         <Testimonials />
@@ -149,8 +160,8 @@ function Nav() {
   const links = [
     { href: "#services", label: "خدماتنا" },
     { href: "#projects", label: "أعمالنا" },
+    { href: "#process", label: "خطوات العمل" },
     { href: "#why", label: "لماذا نحن" },
-    { href: "#about", label: "من نحن" },
     { href: "#faq", label: "الأسئلة" },
     { href: "#contact", label: "تواصل" },
   ];
@@ -415,6 +426,47 @@ function WhyUs() {
               </div>
             </motion.div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------------- PROCESS ---------------- */
+function Process() {
+  return (
+    <section id="process" className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
+      <div className="absolute inset-0 -z-10" style={{ background: "radial-gradient(1000px circle at 50% 0%, oklch(0.75 0.14 82 / 0.08), transparent 60%)" }} />
+      <div className="mx-auto max-w-7xl">
+        <motion.div {...fadeUp()} className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-semibold">
+            <ClipboardList className="h-3.5 w-3.5 text-[color:var(--gold)]" /> خطوات العمل
+          </div>
+          <h2 className="section-title">من التواصل <span className="text-gold-gradient">حتى التسليم</span></h2>
+          <p className="mt-4 text-muted-foreground">رحلة واضحة ومنظمة تضمن لك تجربة مريحة ونتيجة تليق بك.</p>
+        </motion.div>
+
+        <div className="relative mt-16">
+          <div className="absolute top-8 right-0 left-0 hidden lg:block h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.75 0.14 82 / 0.4), transparent)" }} />
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
+            {STEPS.map((s, i) => (
+              <motion.div
+                key={s.title}
+                {...fadeUp(i * 0.08)}
+                className="group relative rounded-2xl border border-border bg-card p-6 text-center transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--gold)]"
+                style={{ boxShadow: "0 1px 2px rgba(0,0,0,0.04)" }}
+              >
+                <div className="relative mx-auto grid h-16 w-16 place-items-center rounded-2xl" style={{ background: "var(--gradient-gold)", boxShadow: "var(--shadow-gold)" }}>
+                  <s.icon className="h-7 w-7 text-[#111]" strokeWidth={1.8} />
+                  <span className="absolute -top-2 -left-2 grid h-7 w-7 place-items-center rounded-full bg-[#111] text-[11px] font-black text-[color:var(--gold)]" dir="ltr">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-bold">{s.title}</h3>
+                <p className="mt-2 text-xs text-muted-foreground leading-relaxed">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -799,53 +851,106 @@ function Field({ label, name, type = "text", placeholder, required }: { label: s
 
 /* ---------------- FOOTER ---------------- */
 function Footer() {
+  const socials = [
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Youtube, href: "#", label: "Youtube" },
+  ];
   return (
-    <footer className="relative bg-[#080808] text-white/70 px-4 sm:px-6 pt-16 pb-8">
-      <div className="mx-auto max-w-7xl">
+    <footer className="relative overflow-hidden bg-[#080808] text-white/70 px-4 sm:px-6 pt-20 pb-8">
+      <div className="absolute inset-x-0 top-0 h-px" style={{ background: "linear-gradient(90deg, transparent, oklch(0.75 0.14 82 / 0.6), transparent)" }} />
+      <div className="absolute -top-32 right-1/4 h-64 w-64 rounded-full opacity-20 blur-3xl" style={{ background: "var(--gold)" }} />
+      <div className="absolute -bottom-40 left-1/4 h-72 w-72 rounded-full opacity-10 blur-3xl" style={{ background: "var(--glass-blue)" }} />
+
+      <div className="relative mx-auto max-w-7xl">
+        {/* CTA Banner */}
+        <div className="mb-14 rounded-3xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6" style={{ background: "linear-gradient(135deg, #141414, #1c1c1c)", border: "1px solid rgba(201,162,39,0.2)", boxShadow: "var(--shadow-luxury)" }}>
+          <div className="text-center sm:text-right">
+            <h3 className="text-xl sm:text-2xl font-black text-white" style={{ fontFamily: "var(--font-display)" }}>
+              جاهز لتبدأ مشروعك؟ <span className="text-gold-gradient">اتصل بنا الآن</span>
+            </h3>
+            <p className="mt-2 text-sm text-white/60">معاينة مجانية وعرض سعر خلال ساعة.</p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a href={`tel:${PHONE}`} className="inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-sm" dir="ltr">
+              <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
+            </a>
+            <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full btn-outline-light px-6 py-3 text-sm">
+              <MessageCircle className="h-4 w-4" /> واتساب
+            </a>
+          </div>
+        </div>
+
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
             <div className="flex items-center gap-3">
-              <div className="grid h-11 w-11 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
-                <span className="font-black text-[#111]">ر</span>
+              <div className="grid h-12 w-12 place-items-center rounded-xl" style={{ background: "var(--gradient-gold)" }}>
+                <Building2 className="h-6 w-6 text-[#111]" />
               </div>
               <div>
-                <div className="font-display font-extrabold text-white">الرواد</div>
+                <div className="font-display font-extrabold text-white text-lg text-gold-gradient">الرواد</div>
                 <div className="text-xs text-white/50">للزجاج السيكوريت</div>
               </div>
             </div>
-            <p className="mt-4 text-sm max-w-md leading-relaxed">
-              خبراء تفصيل وتركيب الزجاج السيكوريت في المنطقة الشرقية — واجهات، أبواب، شاور، درابزين ومرايا بأعلى معايير الجودة.
+            <p className="mt-5 text-sm max-w-md leading-relaxed">
+              خبراء تفصيل وتركيب الزجاج السيكوريت في المنطقة الشرقية — واجهات، أبواب، شاور، درابزين ومرايا بأعلى معايير الجودة العالمية.
             </p>
+            <div className="mt-6 flex items-center gap-3">
+              {socials.map((s) => (
+                <a
+                  key={s.label}
+                  href={s.href}
+                  aria-label={s.label}
+                  className="group grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 transition-all hover:border-[color:var(--gold)] hover:bg-[color:var(--gold)] hover:-translate-y-0.5"
+                >
+                  <s.icon className="h-4 w-4 text-white/70 transition-colors group-hover:text-[#111]" />
+                </a>
+              ))}
+            </div>
           </div>
 
           <div>
             <div className="font-bold text-white mb-4">روابط سريعة</div>
-            <ul className="space-y-2 text-sm">
-              <li><a href="#services" className="hover:text-[color:var(--gold)]">خدماتنا</a></li>
-              <li><a href="#projects" className="hover:text-[color:var(--gold)]">أعمالنا</a></li>
-              <li><a href="#about" className="hover:text-[color:var(--gold)]">من نحن</a></li>
-              <li><a href="#faq" className="hover:text-[color:var(--gold)]">الأسئلة الشائعة</a></li>
-              <li><a href="#contact" className="hover:text-[color:var(--gold)]">تواصل</a></li>
+            <ul className="space-y-2.5 text-sm">
+              <li><a href="#services" className="hover:text-[color:var(--gold)] transition-colors">خدماتنا</a></li>
+              <li><a href="#projects" className="hover:text-[color:var(--gold)] transition-colors">أعمالنا</a></li>
+              <li><a href="#process" className="hover:text-[color:var(--gold)] transition-colors">خطوات العمل</a></li>
+              <li><a href="#about" className="hover:text-[color:var(--gold)] transition-colors">من نحن</a></li>
+              <li><a href="#faq" className="hover:text-[color:var(--gold)] transition-colors">الأسئلة الشائعة</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="font-bold text-white mb-4">المدن التي نخدمها</div>
-            <ul className="space-y-2 text-sm">
-              {CITIES.map((c) => (
-                <li key={c} className="flex items-center gap-1.5">
-                  <MapPin className="h-3 w-3 text-[color:var(--gold)]" /> {c}
-                </li>
-              ))}
+            <div className="font-bold text-white mb-4">تواصل معنا</div>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a href={`tel:${PHONE}`} className="flex items-center gap-2 hover:text-[color:var(--gold)] transition-colors" dir="ltr">
+                  <Phone className="h-4 w-4 text-[color:var(--gold)]" /> {PHONE_DISPLAY}
+                </a>
+              </li>
+              <li>
+                <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[color:var(--gold)] transition-colors">
+                  <MessageCircle className="h-4 w-4 text-[color:var(--gold)]" /> واتساب
+                </a>
+              </li>
+              <li>
+                <a href={`mailto:${EMAIL}`} className="flex items-center gap-2 hover:text-[color:var(--gold)] transition-colors" dir="ltr">
+                  <Mail className="h-4 w-4 text-[color:var(--gold)]" /> {EMAIL}
+                </a>
+              </li>
+              <li className="flex items-center gap-2">
+                <MapPin className="h-4 w-4 text-[color:var(--gold)]" /> الدمام — المنطقة الشرقية
+              </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs">
+        <div className="mt-12 border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-white/50">
           <div>© {new Date().getFullYear()} {BRAND}. جميع الحقوق محفوظة.</div>
-          <div className="flex items-center gap-4">
-            <a href={`tel:${PHONE}`} className="hover:text-[color:var(--gold)]" dir="ltr">{PHONE_DISPLAY}</a>
-            <a href={`mailto:${EMAIL}`} className="hover:text-[color:var(--gold)]" dir="ltr">{EMAIL}</a>
+          <div className="flex items-center gap-2">
+            <span>صُنع بعناية في</span>
+            <span className="text-gold-gradient font-bold">المملكة العربية السعودية</span>
           </div>
         </div>
       </div>
