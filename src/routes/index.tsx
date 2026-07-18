@@ -89,6 +89,14 @@ const STATS = [
   { value: 6, suffix: "", label: "مدن نخدمها" },
 ];
 
+const STEPS = [
+  { icon: PhoneCall, title: "تواصل معنا", desc: "اتصل أو أرسل واتساب وسنرد خلال دقائق." },
+  { icon: ClipboardList, title: "معاينة مجانية", desc: "زيارة الموقع وأخذ المقاسات بدقة." },
+  { icon: PencilRuler, title: "تصميم وعرض سعر", desc: "نقدم لك التصور وعرض سعر شفاف." },
+  { icon: Hammer, title: "التصنيع والتركيب", desc: "تنفيذ احترافي بأيدي فنيين معتمدين." },
+  { icon: CheckCircle2, title: "التسليم والضمان", desc: "تسليم نهائي مع ضمان شامل على الأعمال." },
+];
+
 function useCount(target: number, inView: boolean, duration = 1600) {
   const [n, setN] = useState(0);
   useEffect(() => {
