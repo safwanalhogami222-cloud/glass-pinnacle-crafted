@@ -911,13 +911,34 @@ function Contact() {
           <p className="mt-1 text-sm text-muted-foreground">املأ النموذج وسنعاود التواصل خلال أقل من ساعة.</p>
           <div className="mt-6 grid gap-4">
             <Field label="الاسم الكامل" name="name" placeholder="اسمك الكريم" required />
-            <Field label="رقم الجوال" name="phone" type="tel" placeholder="05xxxxxxxx" required />
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Field label="رقم الجوال" name="phone" type="tel" placeholder="05xxxxxxxx" required />
+              <div>
+                <label className="block text-xs font-semibold mb-1.5">المدينة</label>
+                <select name="city" required className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]">
+                  <option value="">اختر المدينة</option>
+                  {CITIES.map((c) => <option key={c}>{c}</option>)}
+                </select>
+              </div>
+            </div>
             <div>
               <label className="block text-xs font-semibold mb-1.5">نوع الخدمة</label>
               <select name="service" required className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]">
                 <option value="">اختر الخدمة</option>
                 {SERVICES.map((s) => <option key={s.title}>{s.title}</option>)}
               </select>
+            </div>
+            <div>
+              <label className="block text-xs font-semibold mb-1.5">صورة الموقع (اختياري)</label>
+              <label className="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-input bg-secondary/50 px-4 py-3 text-sm hover:border-[color:var(--gold)] transition">
+                <span className="truncate text-muted-foreground">{fileName || "اختر صورة من جهازك (JPG/PNG)"}</span>
+                <span className="shrink-0 rounded-full bg-[#111] px-3 py-1 text-xs font-bold text-[color:var(--gold)]">تصفح</span>
+                <input
+                  type="file" name="photo" accept="image/*" className="hidden"
+                  onChange={(e) => setFileName(e.target.files?.[0]?.name || "")}
+                />
+              </label>
+              <p className="mt-1 text-[11px] text-muted-foreground">ملاحظة: بعد الضغط على الإرسال، أرفق الصورة داخل محادثة واتساب.</p>
             </div>
             <div>
               <label className="block text-xs font-semibold mb-1.5">تفاصيل إضافية</label>
