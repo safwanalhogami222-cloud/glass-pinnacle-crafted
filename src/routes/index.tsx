@@ -478,10 +478,24 @@ function Process() {
   );
 }
 
-/* ---------------- PROJECTS ---------------- */
+/* ---------------- PROJECTS (Masonry + Lightbox) ---------------- */
 function Projects() {
   const [filter, setFilter] = useState("الكل");
+  const [lightbox, setLightbox] = useState<number | null>(null);
   const shown = filter === "الكل" ? PROJECTS : PROJECTS.filter((p) => p.cat === filter);
+
+  useEffect(() => {
+    if (lightbox === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightbox(null);
+      if (e.key === "ArrowLeft") setLightbox((i) => (i === null ? 0 : (i + 1) % shown.length));
+      if (e.key === "ArrowRight") setLightbox((i) => (i === null ? 0 : (i - 1 + shown.length) % shown.length));
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => { window.removeEventListener("keydown", onKey); document.body.style.overflow = ""; };
+  }, [lightbox, shown.length]);
+
   return (
     <section id="projects" className="py-24 sm:py-32 px-4 sm:px-6">
       <div className="mx-auto max-w-7xl">
@@ -490,7 +504,7 @@ function Projects() {
             <Frame className="h-3.5 w-3.5 text-[color:var(--gold)]" /> أعمالنا
           </div>
           <h2 className="section-title">مشاريع منجزة <span className="text-gold-gradient">تتحدث عن نفسها</span></h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">مجموعة مختارة من مشاريعنا في المنطقة الشرقية.</p>
+          <p className="mt-4 max-w-2xl text-muted-foreground">مجموعة مختارة من مشاريعنا في المنطقة الشرقية — اضغط الصورة للتكبير.</p>
         </motion.div>
 
         <motion.div {...fadeUp(0.1)} className="mt-8 flex flex-wrap justify-center gap-2">
@@ -506,39 +520,112 @@ function Projects() {
           ))}
         </motion.div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <AnimatePresence mode="popLayout">
-            {shown.map((p, i) => (
-              <motion.a
-                key={p.title}
-                href="#contact"
-                layout
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.4, delay: i * 0.04 }}
-                className="group relative block overflow-hidden rounded-2xl bg-card"
-                style={{ boxShadow: "var(--shadow-luxury)" }}
-              >
-                <div className="aspect-[4/5] overflow-hidden">
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90 transition-opacity" />
-                <div className="absolute inset-x-0 bottom-0 p-5">
-                  <div className="text-[11px] font-semibold uppercase tracking-widest text-[color:var(--gold)]">{p.cat}</div>
-                  <div className="mt-1 text-lg font-bold text-white">{p.title}</div>
-                </div>
-                <div className="absolute top-4 left-4 grid h-10 w-10 place-items-center rounded-full opacity-0 -translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "var(--gradient-gold)" }}>
-                  <ArrowUpLeft className="h-4 w-4 text-[#111]" />
-                </div>
-              </motion.a>
-            ))}
-          </AnimatePresence>
+        {/* Masonry via CSS columns */}
+        <div className="mt-10 columns-1 sm:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+          {shown.map((p, i) => (
+            <motion.button
+              key={p.title}
+              type="button"
+              onClick={() => setLightbox(i)}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.6, delay: (i % 6) * 0.05 }}
+              className="group relative mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl bg-card text-right"
+              style={{ boxShadow: "var(--shadow-luxury)" }}
+            >
+              <img
+                src={p.img}
+                alt={p.title}
+                loading="lazy"
+                decoding="async"
+                className={`w-full object-cover transition-transform duration-700 group-hover:scale-110 ${i % 3 === 0 ? "aspect-[4/5]" : i % 3 === 1 ? "aspect-square" : "aspect-[4/3]"}`}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-90" />
+              <div className="absolute inset-x-0 bottom-0 p-5">
+                <div className="text-[11px] font-semibold uppercase tracking-widest text-[color:var(--gold)]">{p.cat}</div>
+                <div className="mt-1 text-lg font-bold text-white">{p.title}</div>
+              </div>
+              <div className="absolute top-4 left-4 grid h-10 w-10 place-items-center rounded-full opacity-0 -translate-y-2 transition-all duration-500 group-hover:opacity-100 group-hover:translate-y-0" style={{ background: "var(--gradient-gold)" }}>
+                <ArrowUpLeft className="h-4 w-4 text-[#111]" />
+              </div>
+            </motion.button>
+          ))}
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {lightbox !== null && (
+          <motion.div
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4"
+            onClick={() => setLightbox(null)}
+          >
+            <button
+              onClick={(e) => { e.stopPropagation(); setLightbox(null); }}
+              aria-label="إغلاق"
+              className="absolute top-5 left-5 grid h-11 w-11 place-items-center rounded-full glass-dark text-white"
+            >
+              <X className="h-5 w-5" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); setLightbox((i) => (i === null ? 0 : (i + 1) % shown.length)); }}
+              aria-label="السابق"
+              className="absolute right-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full glass-dark text-white"
+            >
+              <ArrowLeft className="h-5 w-5 rotate-180" />
+            </button>
+            <button
+              onClick={(e) => { e.stopPropagation(); setLightbox((i) => (i === null ? 0 : (i - 1 + shown.length) % shown.length)); }}
+              aria-label="التالي"
+              className="absolute left-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full glass-dark text-white"
+            >
+              <ArrowLeft className="h-5 w-5" />
+            </button>
+            <motion.div
+              key={lightbox}
+              initial={{ scale: 0.95, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.25 }}
+              className="relative max-h-[88vh] max-w-6xl w-full"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={shown[lightbox].img} alt={shown[lightbox].title} className="mx-auto max-h-[88vh] w-auto rounded-2xl object-contain" />
+              <div className="mt-3 text-center text-white">
+                <div className="text-[11px] font-semibold uppercase tracking-widest text-[color:var(--gold)]">{shown[lightbox].cat}</div>
+                <div className="mt-1 font-bold">{shown[lightbox].title}</div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+}
+
+/* ---------------- CLIENTS / LOGOS ---------------- */
+function Clients() {
+  return (
+    <section className="py-16 sm:py-20 px-4 sm:px-6 border-y border-border bg-secondary/40">
+      <div className="mx-auto max-w-7xl">
+        <motion.div {...fadeUp()} className="text-center">
+          <div className="text-xs font-semibold uppercase tracking-[0.25em] text-muted-foreground">شركاء النجاح</div>
+          <h3 className="mt-2 text-xl sm:text-2xl font-bold">شركات وعملاء وثقوا بنا</h3>
+        </motion.div>
+        <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4">
+          {CLIENTS.map((c, i) => (
+            <motion.div
+              key={c}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.04 }}
+              className="group grid h-20 place-items-center rounded-xl border border-border bg-card px-4 transition-all hover:border-[color:var(--gold)] hover:-translate-y-0.5"
+            >
+              <span className="font-display font-extrabold text-base sm:text-lg text-muted-foreground transition-colors group-hover:text-gold-gradient group-hover:[background:var(--gradient-gold)] group-hover:[-webkit-background-clip:text] group-hover:[background-clip:text] group-hover:text-transparent">
+                {c}
+              </span>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
