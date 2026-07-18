@@ -79,7 +79,7 @@ function ServiceNotFound() {
 }
 
 function ServicePage() {
-  const service = Route.useLoaderData();
+  const service = Route.useLoaderData() as ServiceMeta;
   const [openFaq, setOpenFaq] = useState<number | null>(0);
 
   return (
