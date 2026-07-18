@@ -838,14 +838,18 @@ function FaqSection() {
 /* ---------------- CONTACT ---------------- */
 function Contact() {
   const [sent, setSent] = useState(false);
+  const [fileName, setFileName] = useState<string>("");
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const name = String(data.get("name") || "");
     const phone = String(data.get("phone") || "");
+    const city = String(data.get("city") || "");
     const service = String(data.get("service") || "");
     const msg = String(data.get("msg") || "");
-    const text = `مرحبًا الرواد،%0Aالاسم: ${name}%0Aالجوال: ${phone}%0Aالخدمة: ${service}%0Aالتفاصيل: ${msg}`;
+    const file = data.get("photo") as File | null;
+    const hasPhoto = file && file.size > 0 ? `%0Aمرفق صورة: ${file.name} (سأرسلها في المحادثة)` : "";
+    const text = `مرحبًا الرواد،%0Aالاسم: ${name}%0Aالجوال: ${phone}%0Aالمدينة: ${city}%0Aالخدمة: ${service}%0Aالتفاصيل: ${msg}${hasPhoto}`;
     window.open(`https://wa.me/${WHATSAPP}?text=${text}`, "_blank");
     setSent(true);
   };
