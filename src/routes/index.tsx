@@ -2,13 +2,14 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import {
-  Phone, Mail, MapPin, MessageCircle, Menu, X, ChevronDown,
+  Phone, Mail, MapPin, Menu, X, ChevronDown,
   ShieldCheck, Wrench, Clock, BadgeDollarSign, Sparkles, Search,
   Building2, DoorOpen, Waves, Grid3x3, Frame, Briefcase,
   MoveHorizontal, Layers, Table as TableIcon, Store, Star, ArrowUpLeft, ArrowLeft,
   PhoneCall, ClipboardList, PencilRuler, Hammer, CheckCircle2,
   Instagram, Twitter, Facebook, Youtube
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import heroImg from "@/assets/hero.jpg";
 import pShower from "@/assets/project-shower.jpg";
 import pStorefront from "@/assets/project-storefront.jpg";
@@ -306,7 +307,7 @@ function Hero() {
             target="_blank" rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full btn-outline-light px-7 py-4 text-sm sm:text-base text-white"
           >
-            <MessageCircle className="h-5 w-5" /> تواصل عبر واتساب
+            <WhatsAppIcon size={20} /> تواصل عبر واتساب
           </a>
         </motion.div>
 
@@ -923,7 +924,7 @@ function Contact() {
               <textarea name="msg" rows={4} placeholder="اكتب تفاصيل مشروعك..." className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]" />
             </div>
             <button type="submit" className="mt-2 inline-flex items-center justify-center gap-2 rounded-full btn-gold px-6 py-4 text-sm">
-              إرسال الطلب عبر واتساب <MessageCircle className="h-4 w-4" />
+              إرسال الطلب عبر واتساب <WhatsAppIcon size={16} />
             </button>
             {sent && <div className="text-center text-xs text-emerald-600">تم فتح واتساب لإرسال طلبك.</div>}
           </div>
@@ -973,7 +974,7 @@ function Footer() {
               <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
             </a>
             <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full btn-outline-light px-6 py-3 text-sm">
-              <MessageCircle className="h-4 w-4" /> واتساب
+              <WhatsAppIcon size={16} /> واتساب
             </a>
           </div>
         </div>
@@ -1027,7 +1028,7 @@ function Footer() {
               </li>
               <li>
                 <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[color:var(--gold)] transition-colors">
-                  <MessageCircle className="h-4 w-4 text-[color:var(--gold)]" /> واتساب
+                  <WhatsAppIcon size={16} className="text-[color:var(--gold)]" /> واتساب
                 </a>
               </li>
               <li>
@@ -1065,7 +1066,7 @@ function FloatingActions() {
         className="group grid h-14 w-14 place-items-center rounded-full shadow-2xl transition-transform hover:scale-110"
         style={{ background: "#25D366" }}
       >
-        <MessageCircle className="h-6 w-6 text-white" />
+        <WhatsAppIcon size={28} className="text-white" />
         <span className="absolute inset-0 rounded-full animate-ping opacity-30" style={{ background: "#25D366" }} />
       </a>
       <a

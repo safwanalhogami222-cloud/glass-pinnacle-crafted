@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { Clock, Mail, MapPin, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { PageHero } from "@/components/site/PageHero";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -62,7 +63,7 @@ function ContactPage() {
               </a>
               <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="group rounded-2xl border border-border bg-card p-5 flex items-center gap-4 transition-all hover:-translate-y-0.5 hover:border-[color:var(--gold)]">
                 <div className="grid h-12 w-12 shrink-0 place-items-center rounded-xl" style={{ background: "#25D366" }}>
-                  <MessageCircle className="h-5 w-5 text-white" />
+                  <WhatsAppIcon size={20} className="text-white" />
                 </div>
                 <div>
                   <div className="text-xs text-muted-foreground">واتساب</div>

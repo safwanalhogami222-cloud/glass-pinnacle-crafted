@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { MessageCircle } from "lucide-react";
 import { CITIES, SERVICES_META, WHATSAPP } from "@/lib/site-data";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function QuoteForm({ defaultService, compact = false }: { defaultService?: string; compact?: boolean }) {
   const [sent, setSent] = useState(false);
@@ -67,7 +67,7 @@ export function QuoteForm({ defaultService, compact = false }: { defaultService?
           <textarea name="msg" rows={4} placeholder="اكتب تفاصيل مشروعك..." className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]" />
         </div>
         <button type="submit" className="mt-2 inline-flex items-center justify-center gap-2 rounded-full btn-gold px-6 py-4 text-sm">
-          إرسال الطلب عبر واتساب <MessageCircle className="h-4 w-4" />
+          إرسال الطلب عبر واتساب <WhatsAppIcon size={16} />
         </button>
         {sent && <div className="text-center text-xs text-emerald-600">تم فتح واتساب لإرسال طلبك.</div>}
       </div>
