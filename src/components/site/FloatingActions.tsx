@@ -1,5 +1,6 @@
-import { MessageCircle, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 import { PHONE, WHATSAPP } from "@/lib/site-data";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 
 export function FloatingActions() {
   return (
@@ -12,7 +13,7 @@ export function FloatingActions() {
         className="relative grid h-14 w-14 place-items-center rounded-full shadow-2xl transition-transform hover:scale-110"
         style={{ background: "#25D366" }}
       >
-        <MessageCircle className="h-6 w-6 text-white" />
+        <WhatsAppIcon size={28} className="text-white" />
         <span className="absolute inset-0 rounded-full animate-ping opacity-30" style={{ background: "#25D366" }} />
       </a>
       <a

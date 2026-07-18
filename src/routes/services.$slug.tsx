@@ -1,7 +1,8 @@
 import { Link, createFileRoute, notFound } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
-import { ArrowLeft, CheckCircle2, ChevronDown, MessageCircle, Phone } from "lucide-react";
+import { ArrowLeft, CheckCircle2, ChevronDown, Phone } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { PageHero } from "@/components/site/PageHero";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
 import { QuoteForm } from "@/components/site/QuoteForm";
@@ -146,7 +147,7 @@ function ServicePage() {
                 <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
               </a>
               <a href={`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(`مرحبًا، أرغب في الاستفسار عن: ${service.title}`)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm text-white" style={{ background: "#25D366" }}>
-                <MessageCircle className="h-4 w-4" /> واتساب
+                <WhatsAppIcon size={16} /> واتساب
               </a>
             </div>
           </div>

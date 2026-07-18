@@ -1,6 +1,7 @@
 import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Mail, MapPin, MessageCircle, Phone, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 import { BRAND, EMAIL, PHONE, PHONE_DISPLAY, SERVICES_META, WHATSAPP } from "@/lib/site-data";
+import { WhatsAppIcon } from "./WhatsAppIcon";
 import logo from "@/assets/logo.png.asset.json";
 
 const socials = [
@@ -30,7 +31,7 @@ export function Footer() {
               <Phone className="h-4 w-4" /> {PHONE_DISPLAY}
             </a>
             <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full btn-outline-light px-6 py-3 text-sm">
-              <MessageCircle className="h-4 w-4" /> واتساب
+              <WhatsAppIcon size={16} /> واتساب
             </a>
           </div>
         </div>
@@ -80,7 +81,7 @@ export function Footer() {
               </li>
               <li>
                 <a href={`https://wa.me/${WHATSAPP}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-[color:var(--gold)] transition-colors">
-                  <MessageCircle className="h-4 w-4 text-[color:var(--gold)]" /> واتساب
+                  <WhatsAppIcon size={16} className="text-[color:var(--gold)]" /> واتساب
                 </a>
               </li>
               <li>
