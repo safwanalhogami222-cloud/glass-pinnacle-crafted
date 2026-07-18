@@ -140,25 +140,21 @@ function fadeUp(delay = 0) {
 }
 
 function HomePage() {
+  // Nav, Footer and FloatingActions are provided globally by __root.tsx
+  void Nav; void Footer; void FloatingActions;
   return (
-    <div dir="rtl" className="min-h-dvh bg-background text-foreground overflow-x-clip">
-      <Nav />
-      <main>
-        <Hero />
-        <Stats />
-        <Services />
-        <WhyUs />
-        <Process />
-        <Projects />
-        <BeforeAfter />
-        
-        <Testimonials />
-        <About />
-        <FaqSection />
-        <Contact />
-      </main>
-      <Footer />
-      <FloatingActions />
+    <div dir="rtl" className="bg-background text-foreground overflow-x-clip">
+      <Hero />
+      <Stats />
+      <Services />
+      <WhyUs />
+      <Process />
+      <Projects />
+      <BeforeAfter />
+      <Testimonials />
+      <About />
+      <FaqSection />
+      <Contact />
     </div>
   );
 }
