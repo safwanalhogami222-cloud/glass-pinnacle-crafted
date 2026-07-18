@@ -103,9 +103,6 @@ const STATS: { value: number; suffix: string; label: string; text?: string }[] =
   { value: 0, suffix: "", label: "ضمان على التركيب", text: "معتمد" },
 ];
 
-const CLIENTS = [
-  "أرامكو", "سابك", "المراعي", "الراجحي", "STC", "بن لادن", "معرض الرياض", "نيوم",
-];
 
 const STEPS = [
   { icon: PhoneCall, title: "تواصل معنا", desc: "اتصل أو أرسل واتساب وسنرد خلال دقائق." },
