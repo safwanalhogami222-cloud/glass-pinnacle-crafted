@@ -8,6 +8,7 @@ import {
   CATEGORY_META,
   GALLERY_ITEMS,
   getGalleryItem,
+  type GalleryItem,
 } from "@/lib/gallery-images";
 
 export const Route = createFileRoute("/gallery/$slug")({
@@ -64,7 +65,7 @@ function ProjectNotFound() {
 }
 
 function ProjectPage() {
-  const { item } = Route.useLoaderData();
+  const { item } = Route.useLoaderData() as { item: GalleryItem };
   const related = GALLERY_ITEMS.filter((i) => i.category === item.category && i.slug !== item.slug).slice(0, 3);
 
   return (
