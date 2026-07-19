@@ -46,14 +46,15 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socials.map((s) => (
-                <a
+                <button
                   key={s.label}
-                  href={s.href}
+                  type="button"
                   aria-label={s.label}
+                  title="قريبًا"
                   className="group grid h-10 w-10 place-items-center rounded-full border border-white/10 bg-white/5 transition-all hover:border-[color:var(--gold)] hover:bg-[color:var(--gold)] hover:-translate-y-0.5"
                 >
                   <s.icon className="h-4 w-4 text-white/70 transition-colors group-hover:text-[#111]" />
-                </a>
+                </button>
               ))}
             </div>
           </div>
