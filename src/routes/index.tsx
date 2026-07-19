@@ -738,10 +738,7 @@ function About() {
             <span className="text-gold-gradient">اسم يعني الجودة</span>
           </h2>
           <p className="mt-6 text-white/70 leading-loose">
-            نحن في <strong className="text-white">{BRAND}</strong> نجمع بين الخبرة الطويلة والتقنية الحديثة لنقدم حلولًا زجاجية فاخرة في المنطقة الشرقية. منذ انطلاقتنا ونحن نلتزم بمعايير عالمية في اختيار الخامات، ودقة التفصيل، وسرعة التنفيذ، مع اهتمام حقيقي بأدق التفاصيل التي تصنع الفرق.
-          </p>
-          <p className="mt-4 text-white/60 leading-loose">
-            نخدم عملاءنا في الدمام، الخبر، القطيف، الظهران، الجبيل وباقي مدن المنطقة الشرقية بفريق فني معتمد وضمان شامل على جميع الأعمال.
+            <strong className="text-white">الرواد للزجاج</strong> شركة متخصصة في تفصيل وتركيب الزجاج السيكوريت، نقدم حلولًا عملية للمنازل والمنشآت التجارية في المنطقة الشرقية. نركز على دقة القياس، وجودة التنفيذ، واختيار المواد المناسبة، مع الحرص على تقديم أعمال تجمع بين المتانة والمظهر العصري.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="#contact" className="inline-flex items-center gap-2 rounded-full btn-gold px-6 py-3 text-sm">تواصل معنا</a>
