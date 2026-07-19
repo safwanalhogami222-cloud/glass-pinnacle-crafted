@@ -75,6 +75,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "google-site-verification", content: "ajbTa3SSxoEPKCNpF_iNqxFFN_EJ_Su6SDUGra7lWVw" },
       { title: `${SITE_NAME} | زجاج سيكوريت بالمنطقة الشرقية` },
       { name: "description", content: SITE_DESC },
       { name: "author", content: SITE_NAME },
