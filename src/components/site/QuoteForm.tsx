@@ -63,8 +63,8 @@ export function QuoteForm({ defaultService, compact = false }: { defaultService?
           <p className="mt-1 text-[11px] text-muted-foreground">ملاحظة: بعد الضغط على الإرسال، أرفق الصورة داخل محادثة واتساب.</p>
         </div>
         <div>
-          <label className="block text-xs font-semibold mb-1.5">تفاصيل إضافية</label>
-          <textarea name="msg" rows={4} placeholder="اكتب تفاصيل مشروعك..." className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]" />
+          <label htmlFor="msg" className="block text-xs font-semibold mb-1.5">تفاصيل إضافية</label>
+          <textarea id="msg" name="msg" rows={4} placeholder="اكتب تفاصيل مشروعك..." className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]" />
         </div>
         <button type="submit" className="mt-2 inline-flex items-center justify-center gap-2 rounded-full btn-gold px-6 py-4 text-sm">
           إرسال الطلب عبر واتساب <WhatsAppIcon size={16} />
