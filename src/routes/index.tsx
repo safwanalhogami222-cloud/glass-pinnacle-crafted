@@ -11,9 +11,14 @@ import {
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import heroImg from "@/assets/hero.jpg";
+import pShower from "@/assets/project-shower.jpg";
+import pStorefront from "@/assets/project-storefront.jpg";
+import pRailing from "@/assets/project-railing.jpg";
+import pOffice from "@/assets/project-office.jpg";
+import pDoor from "@/assets/project-door.jpg";
+import pMirror from "@/assets/project-mirror.jpg";
 import beforeImg from "@/assets/before.jpg";
 import afterImg from "@/assets/after.jpg";
-import { GALLERY_IMAGES } from "@/lib/gallery-images";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
@@ -67,18 +72,14 @@ const WHY = [
   { icon: Search, title: "معاينة مجانية", desc: "زيارة الموقع وتقديم عرض السعر بدون رسوم." },
 ];
 
-const PROJECT_CATS = ["واجهات", "أبواب", "شاور", "درابزين", "مكاتب", "مرايا"];
-const PROJECT_CITIES = ["الدمام", "الخبر", "القطيف", "الظهران", "الجبيل"];
-const PROJECTS = GALLERY_IMAGES.map((url, i) => {
-  const cat = PROJECT_CATS[i % PROJECT_CATS.length];
-  const city = PROJECT_CITIES[i % PROJECT_CITIES.length];
-  return {
-    img: url,
-    title: `مشروع ${cat} — ${city}`,
-    desc: `تنفيذ احترافي بزجاج سيكوريت عالي الجودة في ${city}.`,
-    cat,
-  };
-});
+const PROJECTS = [
+  { img: pShower, title: "شاور فندقي — الخبر", cat: "شاور" },
+  { img: pStorefront, title: "واجهة محل تجاري — الدمام", cat: "واجهات" },
+  { img: pRailing, title: "درابزين زجاج فيلا — الظهران", cat: "درابزين" },
+  { img: pOffice, title: "قواطع مكاتب — الجبيل", cat: "مكاتب" },
+  { img: pDoor, title: "باب مدخل رئيسي — الدمام", cat: "أبواب" },
+  { img: pMirror, title: "مرايا ديكورية — القطيف", cat: "مرايا" },
+];
 const FILTERS = ["الكل", "واجهات", "أبواب", "شاور", "درابزين", "مكاتب", "مرايا"];
 
 const TESTIMONIALS = [
@@ -750,7 +751,7 @@ function About() {
 
         <motion.div {...fadeUp(0.15)} className="relative">
           <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: "var(--shadow-luxury)" }}>
-            <img src={PROJECTS[0]?.img ?? heroImg} alt="أعمال الرواد" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+            <img src={pStorefront} alt="أعمال الرواد" loading="lazy" className="aspect-[4/3] w-full object-cover" />
           </div>
           <div className="absolute -bottom-6 -right-6 hidden sm:block rounded-2xl p-5 glass-dark text-white max-w-xs">
             <div className="text-xs text-white/60">رؤيتنا</div>
