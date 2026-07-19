@@ -2,7 +2,8 @@ import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram, Mail, MapPin, Phone, Twitter, Youtube } from "lucide-react";
 import { BRAND, EMAIL, PHONE, PHONE_DISPLAY, SERVICES_META, WHATSAPP } from "@/lib/site-data";
 import { WhatsAppIcon } from "./WhatsAppIcon";
-const logo = { url: "/images/logo-horizontal.png" };
+import logoUrl from "@/assets/logo-horizontal.png";
+const logo = { url: logoUrl };
 
 const socials = [
   { icon: Instagram, label: "Instagram" },
