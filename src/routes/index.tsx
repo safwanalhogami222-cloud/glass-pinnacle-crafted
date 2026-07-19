@@ -11,14 +11,9 @@ import {
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import heroImg from "@/assets/hero.jpg";
-import pShower from "@/assets/project-shower.jpg";
-import pStorefront from "@/assets/project-storefront.jpg";
-import pRailing from "@/assets/project-railing.jpg";
-import pOffice from "@/assets/project-office.jpg";
-import pDoor from "@/assets/project-door.jpg";
-import pMirror from "@/assets/project-mirror.jpg";
 import beforeImg from "@/assets/before.jpg";
 import afterImg from "@/assets/after.jpg";
+import { GALLERY_IMAGES } from "@/lib/gallery-images";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
