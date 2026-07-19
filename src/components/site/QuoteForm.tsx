@@ -39,16 +39,16 @@ export function QuoteForm({ defaultService, compact = false }: { defaultService?
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="رقم الجوال" name="phone" type="tel" placeholder="05xxxxxxxx" required />
           <div>
-            <label className="block text-xs font-semibold mb-1.5">المدينة</label>
-            <select name="city" required className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]">
+            <label htmlFor="city" className="block text-xs font-semibold mb-1.5">المدينة</label>
+            <select id="city" name="city" required className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]">
               <option value="">اختر المدينة</option>
               {CITIES.map((c) => <option key={c}>{c}</option>)}
             </select>
           </div>
         </div>
         <div>
-          <label className="block text-xs font-semibold mb-1.5">نوع الخدمة</label>
-          <select name="service" required defaultValue={defaultService ?? ""} className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]">
+          <label htmlFor="service" className="block text-xs font-semibold mb-1.5">نوع الخدمة</label>
+          <select id="service" name="service" required defaultValue={defaultService ?? ""} className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]">
             <option value="">اختر الخدمة</option>
             {SERVICES_META.map((s) => <option key={s.slug}>{s.title}</option>)}
           </select>
@@ -63,8 +63,8 @@ export function QuoteForm({ defaultService, compact = false }: { defaultService?
           <p className="mt-1 text-[11px] text-muted-foreground">ملاحظة: بعد الضغط على الإرسال، أرفق الصورة داخل محادثة واتساب.</p>
         </div>
         <div>
-          <label className="block text-xs font-semibold mb-1.5">تفاصيل إضافية</label>
-          <textarea name="msg" rows={4} placeholder="اكتب تفاصيل مشروعك..." className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]" />
+          <label htmlFor="msg" className="block text-xs font-semibold mb-1.5">تفاصيل إضافية</label>
+          <textarea id="msg" name="msg" rows={4} placeholder="اكتب تفاصيل مشروعك..." className="w-full rounded-xl border border-input bg-white px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[color:var(--gold)]" />
         </div>
         <button type="submit" className="mt-2 inline-flex items-center justify-center gap-2 rounded-full btn-gold px-6 py-4 text-sm">
           إرسال الطلب عبر واتساب <WhatsAppIcon size={16} />

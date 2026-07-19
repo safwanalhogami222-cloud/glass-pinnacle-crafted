@@ -217,7 +217,7 @@ function GalleryPage() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setLightbox((i) => (i === null ? 0 : (i + 1) % shown.length));
+                  setLightbox((i) => (i === null ? 0 : (i - 1 + shown.length) % shown.length));
                 }}
                 aria-label="السابق"
                 className="absolute right-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full glass-dark text-white"
@@ -227,7 +227,7 @@ function GalleryPage() {
               <button
                 onClick={(e) => {
                   e.stopPropagation();
-                  setLightbox((i) => (i === null ? 0 : (i - 1 + shown.length) % shown.length));
+                  setLightbox((i) => (i === null ? 0 : (i + 1) % shown.length));
                 }}
                 aria-label="التالي"
                 className="absolute left-4 top-1/2 -translate-y-1/2 grid h-12 w-12 place-items-center rounded-full glass-dark text-white"
