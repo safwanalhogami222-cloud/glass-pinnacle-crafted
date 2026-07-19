@@ -372,9 +372,9 @@ function Services() {
           <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-semibold">
             <Sparkles className="h-3.5 w-3.5 text-[color:var(--gold)]" /> خدماتنا
           </div>
-          <h2 className="section-title">حلول زجاجية متكاملة <span className="text-gold-gradient">لكل مساحة</span></h2>
-          <p className="mt-4 text-muted-foreground">
-            من الفلل الفاخرة إلى المكاتب والمحلات — ننفذ كل ما يخطر ببالك من أعمال الزجاج السيكوريت بأعلى معايير الجودة.
+          <h2 className="section-title">خدمات متكاملة في <span className="text-gold-gradient">الزجاج السيكوريت</span></h2>
+          <p className="mt-4 text-muted-foreground leading-loose">
+            نقدم خدمات متكاملة في تفصيل وتركيب الزجاج السيكوريت للمنازل والمنشآت التجارية، وتشمل الواجهات الزجاجية، والأبواب، والشاور، والدرابزين، والمرايا، مع الحرص على دقة القياس، وجودة التنفيذ، واختيار المواد المناسبة لتحقيق نتائج عملية ومظهر عصري.
           </p>
         </motion.div>
 
