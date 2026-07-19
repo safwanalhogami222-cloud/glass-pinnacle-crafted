@@ -67,14 +67,18 @@ const WHY = [
   { icon: Search, title: "معاينة مجانية", desc: "زيارة الموقع وتقديم عرض السعر بدون رسوم." },
 ];
 
-const PROJECTS = [
-  { img: pShower, title: "شاور فندقي — الخبر", cat: "شاور" },
-  { img: pStorefront, title: "واجهة محل تجاري — الدمام", cat: "واجهات" },
-  { img: pRailing, title: "درابزين زجاج فيلا — الظهران", cat: "درابزين" },
-  { img: pOffice, title: "قواطع مكاتب — الجبيل", cat: "مكاتب" },
-  { img: pDoor, title: "باب مدخل رئيسي — الدمام", cat: "أبواب" },
-  { img: pMirror, title: "مرايا ديكورية — القطيف", cat: "مرايا" },
-];
+const PROJECT_CATS = ["واجهات", "أبواب", "شاور", "درابزين", "مكاتب", "مرايا"];
+const PROJECT_CITIES = ["الدمام", "الخبر", "القطيف", "الظهران", "الجبيل"];
+const PROJECTS = GALLERY_IMAGES.map((url, i) => {
+  const cat = PROJECT_CATS[i % PROJECT_CATS.length];
+  const city = PROJECT_CITIES[i % PROJECT_CITIES.length];
+  return {
+    img: url,
+    title: `مشروع ${cat} — ${city}`,
+    desc: `تنفيذ احترافي بزجاج سيكوريت عالي الجودة في ${city}.`,
+    cat,
+  };
+});
 const FILTERS = ["الكل", "واجهات", "أبواب", "شاور", "درابزين", "مكاتب", "مرايا"];
 
 const TESTIMONIALS = [
