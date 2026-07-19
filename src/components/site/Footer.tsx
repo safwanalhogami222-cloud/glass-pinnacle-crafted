@@ -5,10 +5,10 @@ import { WhatsAppIcon } from "./WhatsAppIcon";
 import logo from "@/assets/logo.png.asset.json";
 
 const socials = [
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Twitter, href: "#", label: "Twitter" },
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Youtube, href: "#", label: "Youtube" },
+  { icon: Instagram, label: "Instagram" },
+  { icon: Twitter, label: "Twitter" },
+  { icon: Facebook, label: "Facebook" },
+  { icon: Youtube, label: "Youtube" },
 ];
 
 export function Footer() {
