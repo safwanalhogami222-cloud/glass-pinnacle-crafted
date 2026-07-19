@@ -418,7 +418,7 @@ function WhyUs() {
             <ShieldCheck className="h-3.5 w-3.5 text-[color:var(--gold)]" /> لماذا الرواد
           </div>
           <h2 className="section-title text-white">سمعتنا مبنية على <span className="text-gold-gradient">الثقة والإتقان</span></h2>
-          <p className="mt-4 text-white/70">نلتزم بتقديم أعلى معايير الجودة في كل تفصيلة، من أول معاينة حتى آخر تركيب.</p>
+          <p className="mt-4 text-white/70">نحرص على تقديم خدمات الزجاج السيكوريت بجودة تنفيذ، ودقة في القياس، واهتمام بالتفاصيل منذ المعاينة الأولى وحتى اكتمال المشروع.</p>
         </motion.div>
 
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
