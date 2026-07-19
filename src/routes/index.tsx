@@ -107,11 +107,10 @@ const STATS: { value: number; suffix: string; label: string; text?: string }[] =
 
 
 const STEPS = [
-  { icon: PhoneCall, title: "تواصل معنا", desc: "اتصل أو أرسل واتساب وسنرد خلال دقائق." },
-  { icon: ClipboardList, title: "معاينة مجانية", desc: "زيارة الموقع وأخذ المقاسات بدقة." },
-  { icon: PencilRuler, title: "تصميم وعرض سعر", desc: "نقدم لك التصور وعرض سعر شفاف." },
-  { icon: Hammer, title: "التصنيع والتركيب", desc: "تنفيذ احترافي بأيدي فنيين معتمدين." },
-  { icon: CheckCircle2, title: "التسليم والضمان", desc: "تسليم نهائي مع ضمان شامل على الأعمال." },
+  { icon: PhoneCall, title: "تواصل معنا", desc: "تواصل معنا عبر الهاتف أو واتساب لشرح احتياجك وتحديد موعد مناسب للمعاينة." },
+  { icon: ClipboardList, title: "معاينة ورفع المقاسات", desc: "نزور الموقع لأخذ المقاسات بدقة ومناقشة التفاصيل واختيار الحل المناسب." },
+  { icon: PencilRuler, title: "إعداد عرض السعر", desc: "نقدم عرض سعر واضح يتضمن تفاصيل العمل والمواد ومدة التنفيذ." },
+  { icon: Hammer, title: "التصنيع والتركيب", desc: "يتم تصنيع الزجاج وفق المقاسات، ثم تنفيذ التركيب بعناية لضمان جودة النتيجة النهائية." },
 ];
 
 function useCount(target: number, inView: boolean, duration = 1600) {
