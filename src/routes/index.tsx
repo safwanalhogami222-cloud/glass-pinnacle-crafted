@@ -20,12 +20,37 @@ import pMirror from "@/assets/project-mirror.jpg";
 import beforeImg from "@/assets/before.jpg";
 import afterImg from "@/assets/after.jpg";
 
+const HOME_TITLE = "الرواد للزجاج السيكوريت | تفصيل وتركيب زجاج في الدمام والخبر";
+const HOME_DESC =
+  "الرواد للزجاج السيكوريت — تفصيل وتركيب واجهات زجاج، أبواب سيكوريت، شاور، درابزين، مرايا ومكاتب زجاجية في الدمام والخبر والقطيف والظهران والجبيل. معاينة مجانية وعرض سعر خلال ساعة.";
+const HOME_URL = "https://glass-pinnacle-crafted.lovable.app/";
+
 export const Route = createFileRoute("/")({
   component: HomePage,
   head: () => ({
-    links: [{ rel: "canonical", href: "/" }],
-    meta: [{ property: "og:url", content: "/" }],
+    meta: [
+      { title: HOME_TITLE },
+      { name: "description", content: HOME_DESC },
+      { property: "og:title", content: HOME_TITLE },
+      { property: "og:description", content: HOME_DESC },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: HOME_URL },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: HOME_TITLE },
+      { name: "twitter:description", content: HOME_DESC },
+    ],
+    links: [{ rel: "canonical", href: HOME_URL }],
     scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "الرواد للزجاج السيكوريت",
+          url: HOME_URL,
+          inLanguage: "ar",
+        }),
+      },
       {
         type: "application/ld+json",
         children: JSON.stringify({
