@@ -1,33 +1,21 @@
-export const GALLERY_IMAGES: string[] = [
-  "/images/168162056-168162056-HC25062025_02-2100%20%281%29.jpg",
-  "/images/207cbc8f-a9cb-416d-a7d3-04286ebc10a5-1000x1000-dp10NVXXZLqtjXIVlDIf4JTaVNHdZ0iURMGCm4ou.jpg",
-  "/images/34177cd1-2f2b-4ad0-981b-4b406078c8e9-1000x1000-SbBJWPXT0DZBj2jqUNRSxVaQlew6oPdnLW2BPLgG.jpg",
-  "/images/62dea600-5e49-4db7-8840-948915717483-890x1000-0bsljek8EZyhHVD43GICpCOrL0GFivr6p3H0Ca56.jpg",
-  "/images/6d59ee65-6542-4f36-a1c3-598034830654-915.14598540146x1000-urNmgtc8SsthNKtZjAlQ8kpG4ZZxB6DjpvqfstY4.jpg",
-  "/images/FJqkO4q9VQCdz05vsxDabcimbjTxDryf6CeZmeTO.jpg",
-  "/images/HkxvtS4fayCYlIxQkrOdGRWVc8IqUFSVVvqA5tzh.jpg",
-  "/images/IMAGE-2023-07-16-170438-846x1024.jpg",
-  "/images/IMG-20260212-WA0034.jpg",
-  "/images/IMG-20260421-WA0006%281%29.jpg",
-  "/images/IMG-20260421-WA0008.jpg",
-  "/images/IMG-20260421-WA0013.jpg",
-  "/images/IMG-20260421-WA0019.jpg",
-  "/images/IMG-20260523-WA0179.jpeg",
-  "/images/IMG-20260624-WA0084.jpeg",
-  "/images/IMG-20260711-WA0091.jpeg",
-  "/images/f5ec0597-5d2a-46b1-ac32-a6e635c2646b-1000x1000-udqxVpDZhUsnbw89uy2DhmJyhPLAU53opHPjovrj.jpg",
-  "/images/nHEgKdAh4Unul98ExJdNhtOTXQX76WArvXlvPgcY.jpg",
-  "/images/%D9%85%D8%B1%D8%A7%D9%8A%D8%A7%D8%AA-%D9%85%D8%AF%D8%A7%D8%AE%D9%84-%D9%85%D8%B3%D8%AA%D8%AF%D9%8A%D8%B1%D8%A9.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A2%D9%A0%D9%A9_%D9%A1%D9%A7%D9%A2%D9%A1%D9%A2%D9%A2.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A2%D9%A0%D9%A9_%D9%A1%D9%A7%D9%A3%D9%A4%D9%A2%D9%A1.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A2%D9%A0%D9%A9_%D9%A1%D9%A7%D9%A3%D9%A8%D9%A2%D9%A6.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A2%D9%A0%D9%A9_%D9%A1%D9%A7%D9%A5%D9%A5%D9%A5%D9%A9.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A2%D9%A1%D9%A7_%D9%A1%D9%A5%D9%A1%D9%A3%D9%A1%D9%A2.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A2%D9%A2%D9%A6_%D9%A2%D9%A3%D9%A4%D9%A8%D9%A4%D9%A0.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A3%D9%A0%D9%A9_%D9%A0%D9%A7%D9%A0%D9%A6%D9%A2%D9%A3.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A3%D9%A0%D9%A9_%D9%A0%D9%A7%D9%A2%D9%A5%D9%A3%D9%A6.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A3%D9%A0%D9%A9_%D9%A0%D9%A8%D9%A1%D9%A1%D9%A3%D9%A0.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A4%D9%A1%D9%A3_%D9%A2%D9%A0%D9%A4%D9%A2%D9%A2%D9%A7.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A4%D9%A1%D9%A3_%D9%A2%D9%A2%D9%A2%D9%A8%D9%A4%D9%A5.jpg",
-  "/images/%D9%A2%D9%A0%D9%A2%D9%A6%D9%A0%D9%A6%D9%A3%D9%A0_%D9%A1%D9%A8%D9%A3%D9%A5%D9%A2%D9%A0.jpg",
-];
+// Auto-discovers every image in src/assets/gallery/ via Vite's import.meta.glob.
+// Handles regular image files and lovable-assets .asset.json pointers.
+const fileModules = import.meta.glob("../assets/gallery/*.{jpg,jpeg,png,webp}", {
+  eager: true,
+  query: "?url",
+  import: "default",
+}) as Record<string, string>;
+
+const assetModules = import.meta.glob("../assets/gallery/*.asset.json", {
+  eager: true,
+}) as Record<string, { default: { url: string } }>;
+
+const fromFiles = Object.entries(fileModules).map(([path, url]) => ({ path, url }));
+const fromAssets = Object.entries(assetModules).map(([path, mod]) => ({
+  path,
+  url: mod.default.url,
+}));
+
+export const GALLERY_IMAGES: string[] = [...fromFiles, ...fromAssets]
+  .sort((a, b) => a.path.localeCompare(b.path))
+  .map((x) => x.url);
