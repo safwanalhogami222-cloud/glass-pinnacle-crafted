@@ -27,8 +27,10 @@ export function Nav() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className={`flex items-center justify-between rounded-2xl px-4 sm:px-6 py-3 transition-all duration-500 ${scrolled ? "glass-dark shadow-2xl" : "bg-transparent"}`}>
-          <Link to="/" className="flex items-center gap-3 order-2">
-            <img src={logo.url} alt="الرواد للزجاج السيكوريت" className="h-12 sm:h-14 w-auto object-contain" />
+          <Link to="/" className="flex items-center order-2" aria-label="الرواد للزجاج السيكوريت">
+            <span className="font-display font-extrabold tracking-tight text-lg sm:text-xl md:text-2xl text-[color:var(--gold)] whitespace-nowrap">
+              الرواد للزجاج السيكوريت
+            </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1 order-1">
