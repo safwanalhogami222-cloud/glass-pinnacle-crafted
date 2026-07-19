@@ -3,7 +3,9 @@ import { Link } from "@tanstack/react-router";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu, Phone, X, ChevronDown } from "lucide-react";
 import { PHONE, PHONE_DISPLAY, SERVICES_META } from "@/lib/site-data";
-import logo from "@/assets/logo.png.asset.json";
+const logo = {
+  url: "/images/logo-horizontal.png"
+};
 
 const LINKS = [
   { to: "/", label: "الرئيسية" },
