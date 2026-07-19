@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { BASE_URL, SERVICES_META } from "@/lib/site-data";
+import { GALLERY_ITEMS } from "@/lib/gallery-images";
+
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -15,6 +17,11 @@ export const Route = createFileRoute("/sitemap.xml")({
             path: `/services/${s.slug}`,
             changefreq: "monthly",
             priority: "0.8",
+          })),
+          ...GALLERY_ITEMS.map((g) => ({
+            path: `/gallery/${g.slug}`,
+            changefreq: "monthly",
+            priority: "0.6",
           })),
         ];
         const urls = entries
