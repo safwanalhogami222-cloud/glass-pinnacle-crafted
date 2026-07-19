@@ -750,7 +750,7 @@ function About() {
 
         <motion.div {...fadeUp(0.15)} className="relative">
           <div className="relative rounded-3xl overflow-hidden" style={{ boxShadow: "var(--shadow-luxury)" }}>
-            <img src={pStorefront} alt="أعمال الرواد" loading="lazy" className="aspect-[4/3] w-full object-cover" />
+            <img src={PROJECTS[0]?.img ?? heroImg} alt="أعمال الرواد" loading="lazy" className="aspect-[4/3] w-full object-cover" />
           </div>
           <div className="absolute -bottom-6 -right-6 hidden sm:block rounded-2xl p-5 glass-dark text-white max-w-xs">
             <div className="text-xs text-white/60">رؤيتنا</div>
