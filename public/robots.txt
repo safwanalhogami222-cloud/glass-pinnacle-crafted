@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://glass-pinnacle-crafted.lovable.app/sitemap.xml
+Sitemap: https://www.rowadglass.com/sitemap.xml

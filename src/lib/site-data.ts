@@ -10,7 +10,7 @@ export const PHONE = "+966501910923";
 export const PHONE_DISPLAY = "0501910923";
 export const WHATSAPP = "966501910923";
 export const EMAIL = "info@alrowad-glass.sa";
-export const BASE_URL = "https://glass-pinnacle-crafted.lovable.app";
+export const BASE_URL = "https://www.rowadglass.com";
 
 export const CITIES = ["الدمام", "الخبر", "القطيف", "الظهران", "الجبيل", "المنطقة الشرقية"];
 export const SERVICE_AREAS = ["الدمام", "الخبر", "الظهران", "القطيف", "الجبيل", "رأس تنورة"];

@@ -23,7 +23,7 @@ import afterImg from "@/assets/after.jpg";
 const HOME_TITLE = "الرواد للزجاج السيكوريت | تفصيل وتركيب زجاج في الدمام والخبر";
 const HOME_DESC =
   "الرواد للزجاج السيكوريت — تفصيل وتركيب واجهات زجاج، أبواب سيكوريت، شاور، درابزين، مرايا ومكاتب زجاجية في الدمام والخبر والقطيف والظهران والجبيل. معاينة مجانية وعرض سعر خلال ساعة.";
-const HOME_URL = "https://glass-pinnacle-crafted.lovable.app/";
+const HOME_URL = "https://www.rowadglass.com/";
 
 export const Route = createFileRoute("/")({
   component: HomePage,
