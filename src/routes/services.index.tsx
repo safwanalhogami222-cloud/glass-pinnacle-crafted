@@ -88,7 +88,30 @@ function ServicesIndex() {
               </div>
             </Link>
           </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              to="/glass-facades-dammam"
+              className="group relative flex h-full flex-col justify-center overflow-hidden rounded-3xl bg-card border border-[color:var(--gold)]/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--gold)]"
+              style={{ boxShadow: "var(--shadow-luxury)" }}
+            >
+              <span className="text-xs font-semibold text-muted-foreground">صفحة الخدمة</span>
+              <h2 className="mt-2 text-xl font-bold">تركيب واجهات زجاج بالدمام</h2>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                واجهات زجاج سيكوريت للمحلات والمكاتب والمباني التجارية: الأنواع، الأنظمة، مدة التنفيذ والضمان في الدمام والخبر والشرقية.
+              </p>
+              <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--gold)]">
+                <span>تفاصيل واجهات الزجاج</span>
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
+              </div>
+            </Link>
+          </motion.div>
         </div>
+
 
       </section>
     </>

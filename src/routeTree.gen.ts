@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as GlassInstallationDammamRouteImport } from './routes/glass-installation-dammam'
+import { Route as GlassFacadesDammamRouteImport } from './routes/glass-facades-dammam'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
@@ -32,6 +33,11 @@ const ServicesRoute = ServicesRouteImport.update({
 const GlassInstallationDammamRoute = GlassInstallationDammamRouteImport.update({
   id: '/glass-installation-dammam',
   path: '/glass-installation-dammam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlassFacadesDammamRoute = GlassFacadesDammamRouteImport.update({
+  id: '/glass-facades-dammam',
+  path: '/glass-facades-dammam',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GalleryRoute = GalleryRouteImport.update({
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRouteWithChildren
+  '/glass-facades-dammam': typeof GlassFacadesDammamRoute
   '/glass-installation-dammam': typeof GlassInstallationDammamRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRouteWithChildren
+  '/glass-facades-dammam': typeof GlassFacadesDammamRoute
   '/glass-installation-dammam': typeof GlassInstallationDammamRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
@@ -91,6 +99,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRouteWithChildren
+  '/glass-facades-dammam': typeof GlassFacadesDammamRoute
   '/glass-installation-dammam': typeof GlassInstallationDammamRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
@@ -104,6 +113,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/gallery'
+    | '/glass-facades-dammam'
     | '/glass-installation-dammam'
     | '/services'
     | '/sitemap.xml'
@@ -115,6 +125,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/gallery'
+    | '/glass-facades-dammam'
     | '/glass-installation-dammam'
     | '/sitemap.xml'
     | '/gallery/$slug'
@@ -125,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/gallery'
+    | '/glass-facades-dammam'
     | '/glass-installation-dammam'
     | '/services'
     | '/sitemap.xml'
@@ -137,6 +149,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRouteWithChildren
+  GlassFacadesDammamRoute: typeof GlassFacadesDammamRoute
   GlassInstallationDammamRoute: typeof GlassInstallationDammamRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
@@ -163,6 +176,13 @@ declare module '@tanstack/react-router' {
       path: '/glass-installation-dammam'
       fullPath: '/glass-installation-dammam'
       preLoaderRoute: typeof GlassInstallationDammamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glass-facades-dammam': {
+      id: '/glass-facades-dammam'
+      path: '/glass-facades-dammam'
+      fullPath: '/glass-facades-dammam'
+      preLoaderRoute: typeof GlassFacadesDammamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/gallery': {
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRouteWithChildren,
+  GlassFacadesDammamRoute: GlassFacadesDammamRoute,
   GlassInstallationDammamRoute: GlassInstallationDammamRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
@@ -246,3 +267,13 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
