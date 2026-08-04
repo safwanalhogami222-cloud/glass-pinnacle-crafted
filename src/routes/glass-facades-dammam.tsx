@@ -196,8 +196,9 @@ function FacadesPage() {
       <Breadcrumbs items={[{ label: "الخدمات", to: "/services" }, { label: "تركيب واجهات زجاج بالدمام" }]} />
 
       <section className="py-16 sm:py-24 px-4 sm:px-6">
-        <div className="mx-auto max-w-7xl grid gap-10 lg:grid-cols-[1.2fr_1fr] items-start">
-          <div>
+        <div className="mx-auto w-full max-w-7xl grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
+          <div className="min-w-0">
+
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
               <h2 className="section-title">
                 خدمة <span className="text-gold-gradient">تركيب واجهات زجاج بالدمام</span> بمعايير هندسية
