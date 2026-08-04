@@ -356,7 +356,7 @@ function FacadesPage() {
             </motion.div>
           </div>
 
-          <div className="lg:sticky lg:top-28">
+          <div className="min-w-0 lg:sticky lg:top-28">
             <QuoteForm defaultService="تركيب واجهات زجاج بالدمام" />
             <div className="mt-4 grid grid-cols-2 gap-3">
               <a href={`tel:${PHONE}`} className="inline-flex items-center justify-center gap-2 rounded-full btn-gold px-5 py-3 text-sm" dir="ltr">
