@@ -66,7 +66,30 @@ function ServicesIndex() {
               </Link>
             </motion.div>
           ))}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <Link
+              to="/glass-installation-dammam"
+              className="group relative flex h-full flex-col justify-center overflow-hidden rounded-3xl bg-card border border-[color:var(--gold)]/40 p-8 transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--gold)]"
+              style={{ boxShadow: "var(--shadow-luxury)" }}
+            >
+              <span className="text-xs font-semibold text-muted-foreground">صفحة المدينة</span>
+              <h2 className="mt-2 text-xl font-bold">تركيب زجاج سيكوريت بالدمام</h2>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">
+                كل ما تحتاج معرفته عن تفصيل وتركيب الزجاج السيكوريت في الدمام والمنطقة الشرقية: الأنواع، الأسعار، مدة التنفيذ والضمان.
+              </p>
+              <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[color:var(--gold)]">
+                <span>تفاصيل خدمة الدمام</span>
+                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" aria-hidden="true" />
+              </div>
+            </Link>
+          </motion.div>
         </div>
+
       </section>
     </>
   );
