@@ -12,6 +12,7 @@ export const Route = createFileRoute("/sitemap.xml")({
         const entries: { path: string; changefreq: string; priority: string }[] = [
           { path: "/", changefreq: "weekly", priority: "1.0" },
           { path: "/services", changefreq: "monthly", priority: "0.9" },
+          { path: "/glass-installation-dammam", changefreq: "monthly", priority: "0.9" },
           { path: "/gallery", changefreq: "monthly", priority: "0.8" },
           { path: "/contact", changefreq: "monthly", priority: "0.7" },
           ...SERVICES_META.map((s) => ({
