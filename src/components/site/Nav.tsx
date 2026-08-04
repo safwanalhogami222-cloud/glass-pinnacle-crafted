@@ -7,6 +7,7 @@ import { PHONE, PHONE_DISPLAY, SERVICES_META } from "@/lib/site-data";
 const LINKS = [
   { to: "/", label: "الرئيسية" },
   { to: "/services", label: "خدماتنا" },
+  { to: "/glass-installation-dammam", label: "زجاج سيكوريت بالدمام" },
   { to: "/gallery", label: "معرض الأعمال" },
   { to: "/contact", label: "تواصل معنا" },
 ];
