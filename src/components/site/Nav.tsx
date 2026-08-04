@@ -8,6 +8,7 @@ const LINKS = [
   { to: "/", label: "الرئيسية" },
   { to: "/services", label: "خدماتنا" },
   { to: "/glass-installation-dammam", label: "زجاج سيكوريت بالدمام" },
+  { to: "/glass-facades-dammam", label: "واجهات زجاج بالدمام" },
   { to: "/gallery", label: "معرض الأعمال" },
   { to: "/contact", label: "تواصل معنا" },
 ];
