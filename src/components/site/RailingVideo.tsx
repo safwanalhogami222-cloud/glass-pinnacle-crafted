@@ -5,9 +5,11 @@ import { Play } from "lucide-react";
 import { BASE_URL, WHATSAPP } from "@/lib/site-data";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import videoAsset from "@/assets/glass-railing-installation.mp4.asset.json";
+import videoWebmAsset from "@/assets/glass-railing-installation.webm.asset.json";
 import posterAsset from "@/assets/glass-railing-poster.jpg.asset.json";
 
 export const RAILING_VIDEO_URL = videoAsset.url;
+export const RAILING_VIDEO_WEBM_URL = videoWebmAsset.url;
 export const RAILING_VIDEO_POSTER = posterAsset.url;
 
 const VIDEO_TITLE = "تركيب درابزين زجاج سيكوريت مع ستانلس ستيل";
@@ -46,15 +48,20 @@ function Player({ rounded = "rounded-2xl" }: { rounded?: string }) {
         {active ? (
           <video
             className="block h-full w-full max-w-full object-cover bg-black"
-            src={RAILING_VIDEO_URL}
             poster={RAILING_VIDEO_POSTER}
             controls
-            autoPlay
             playsInline
-            preload="metadata"
+            preload="auto"
             controlsList="nodownload"
             title={VIDEO_TITLE}
-          />
+            ref={(el) => {
+              if (el) void el.play().catch(() => {});
+            }}
+          >
+            <source src={RAILING_VIDEO_URL} type="video/mp4" />
+            <source src={RAILING_VIDEO_WEBM_URL} type="video/webm" />
+            <a href={RAILING_VIDEO_URL}>تنزيل الفيديو</a>
+          </video>
         ) : (
           <button
             type="button"
