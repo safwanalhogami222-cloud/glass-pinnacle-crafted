@@ -5,9 +5,11 @@ import { Play } from "lucide-react";
 import { BASE_URL, WHATSAPP } from "@/lib/site-data";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import videoAsset from "@/assets/glass-railing-installation.mp4.asset.json";
+import videoWebmAsset from "@/assets/glass-railing-installation.webm.asset.json";
 import posterAsset from "@/assets/glass-railing-poster.jpg.asset.json";
 
 export const RAILING_VIDEO_URL = videoAsset.url;
+export const RAILING_VIDEO_WEBM_URL = videoWebmAsset.url;
 export const RAILING_VIDEO_POSTER = posterAsset.url;
 
 const VIDEO_TITLE = "تركيب درابزين زجاج سيكوريت مع ستانلس ستيل";
