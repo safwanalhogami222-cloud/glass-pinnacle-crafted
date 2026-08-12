@@ -58,8 +58,8 @@ function Player({ rounded = "rounded-2xl" }: { rounded?: string }) {
               if (el) void el.play().catch(() => {});
             }}
           >
-            <source src={RAILING_VIDEO_URL} type='video/mp4; codecs="avc1.4D401F, mp4a.40.2"' />
             <source src={RAILING_VIDEO_URL} type="video/mp4" />
+            <source src={RAILING_VIDEO_WEBM_URL} type="video/webm" />
             <a href={RAILING_VIDEO_URL}>تنزيل الفيديو</a>
           </video>
         ) : (
