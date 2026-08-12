@@ -32,6 +32,7 @@ export const Route = createFileRoute("/gallery")({
       { name: "twitter:description", content: DESC },
     ],
     links: [{ rel: "canonical", href: `${BASE_URL}/gallery` }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(railingVideoSchema) }],
   }),
 });
 
