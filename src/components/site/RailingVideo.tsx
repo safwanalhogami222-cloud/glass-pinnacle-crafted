@@ -89,10 +89,10 @@ export function RailingVideoSection() {
     <section id="railing-video" className="w-full overflow-hidden px-4 sm:px-6 py-12 sm:py-16">
       <div className="mx-auto w-full max-w-7xl">
         <div className="flex flex-col items-center text-center">
-          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-semibold text-white/80">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-4 py-1.5 text-xs font-semibold">
             <Play className="h-3.5 w-3.5 text-[color:var(--gold)]" /> فيديو من الموقع
           </div>
-          <h2 className="section-title text-white">
+          <h2 className="section-title">
             مشاهدة أعمالنا في تنفيذ وتركيب <span className="text-gold-gradient">الدرابزين الزجاجي</span>
           </h2>
         </div>
@@ -103,14 +103,14 @@ export function RailingVideoSection() {
           </div>
 
           <div className="min-w-0 text-right">
-            <p className="text-base sm:text-lg leading-relaxed text-white/85">{VIDEO_DESC}</p>
-            <p className="mt-4 text-sm sm:text-base leading-relaxed text-white/65">
-              نُنفّذ <strong className="text-white/90">درابزين زجاج</strong> و
-              <strong className="text-white/90"> درابزين زجاج ستانلس ستيل</strong> للسلالم والشرفات والمداخل، مع
-              خبرة واسعة في <strong className="text-white/90">تركيب درابزين زجاج</strong> بمقاسات دقيقة. وإذا كنت
-              تبحث عن <strong className="text-white/90">درابزين زجاج بالدمام</strong> بتصميم
-              <strong className="text-white/90"> درابزين زجاج مودرن</strong>، فريقنا متخصص في
-              <strong className="text-white/90"> تركيب درابزين زجاج سيكوريت</strong> مع ضمان على التنفيذ.
+            <p className="text-base sm:text-lg leading-relaxed text-foreground/85">{VIDEO_DESC}</p>
+            <p className="mt-4 text-sm sm:text-base leading-relaxed text-muted-foreground">
+              نُنفّذ <strong className="text-foreground">درابزين زجاج</strong> و
+              <strong className="text-foreground"> درابزين زجاج ستانلس ستيل</strong> للسلالم والشرفات والمداخل، مع
+              خبرة واسعة في <strong className="text-foreground">تركيب درابزين زجاج</strong> بمقاسات دقيقة. وإذا كنت
+              تبحث عن <strong className="text-foreground">درابزين زجاج بالدمام</strong> بتصميم
+              <strong className="text-foreground"> درابزين زجاج مودرن</strong>، فريقنا متخصص في
+              <strong className="text-foreground"> تركيب درابزين زجاج سيكوريت</strong> مع ضمان على التنفيذ.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
@@ -125,7 +125,7 @@ export function RailingVideoSection() {
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary px-6 py-3 text-sm font-bold transition-colors hover:bg-accent/40"
               >
                 صفحة التواصل
               </Link>
