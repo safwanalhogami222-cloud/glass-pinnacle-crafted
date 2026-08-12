@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpLeft, MapPin, X } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { RailingVideoSection, railingVideoSchema } from "@/components/site/RailingVideo";
 import { BASE_URL } from "@/lib/site-data";
 import {
   CATEGORY_META,
