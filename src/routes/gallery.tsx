@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, ArrowUpLeft, MapPin, X } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
+import { RailingVideoSection, railingVideoSchema } from "@/components/site/RailingVideo";
 import { BASE_URL } from "@/lib/site-data";
 import {
   CATEGORY_META,
@@ -32,6 +33,7 @@ export const Route = createFileRoute("/gallery")({
       { name: "twitter:description", content: DESC },
     ],
     links: [{ rel: "canonical", href: `${BASE_URL}/gallery` }],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(railingVideoSchema) }],
   }),
 });
 
@@ -83,6 +85,8 @@ function GalleryPage() {
         desc="مجموعة مختارة من أعمالنا في المنطقة الشرقية — مصنفة حسب نوع العمل. اضغط أي صورة لعرضها بالحجم الكامل أو فتح صفحة المشروع."
       />
       <Breadcrumbs items={[{ label: "معرض الأعمال", to: "/gallery" }]} />
+
+      <RailingVideoSection />
 
       <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl">

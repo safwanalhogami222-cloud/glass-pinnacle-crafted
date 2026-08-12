@@ -10,6 +10,7 @@ import {
   Instagram, Twitter, Facebook, Youtube
 } from "lucide-react";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
+import { RailingVideoTeaser, railingVideoSchema } from "@/components/site/RailingVideo";
 import heroImg from "@/assets/hero.jpg";
 import pShower from "@/assets/project-shower.jpg";
 import pStorefront from "@/assets/project-storefront.jpg";
@@ -63,6 +64,7 @@ export const Route = createFileRoute("/")({
           })),
         }),
       },
+      { type: "application/ld+json", children: JSON.stringify(railingVideoSchema) },
     ],
   }),
 });
@@ -176,6 +178,7 @@ function HomePage() {
       <WhyUs />
       <Process />
       <Projects />
+      <RailingVideoTeaser />
       <BeforeAfter />
       <Testimonials />
       <About />
