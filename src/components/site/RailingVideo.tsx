@@ -46,15 +46,20 @@ function Player({ rounded = "rounded-2xl" }: { rounded?: string }) {
         {active ? (
           <video
             className="block h-full w-full max-w-full object-cover bg-black"
-            src={RAILING_VIDEO_URL}
             poster={RAILING_VIDEO_POSTER}
             controls
-            autoPlay
             playsInline
-            preload="metadata"
+            preload="auto"
             controlsList="nodownload"
             title={VIDEO_TITLE}
-          />
+            ref={(el) => {
+              if (el) void el.play().catch(() => {});
+            }}
+          >
+            <source src={RAILING_VIDEO_URL} type='video/mp4; codecs="avc1.4D401F, mp4a.40.2"' />
+            <source src={RAILING_VIDEO_URL} type="video/mp4" />
+            <a href={RAILING_VIDEO_URL}>تنزيل الفيديو</a>
+          </video>
         ) : (
           <button
             type="button"
