@@ -39,13 +39,13 @@ function Player({ rounded = "rounded-2xl" }: { rounded?: string }) {
 
   return (
     <div
-      className={`relative w-full max-w-full overflow-hidden ${rounded} bg-black`}
+      className={`relative mx-auto w-full max-w-full sm:max-w-[420px] overflow-hidden ${rounded} bg-black`}
       style={{ boxShadow: "var(--shadow-luxury)" }}
     >
-      <div className="aspect-video w-full max-w-full">
+      <div className="aspect-[9/16] w-full max-w-full">
         {active ? (
           <video
-            className="block h-full w-full max-w-full object-contain bg-black"
+            className="block h-full w-full max-w-full object-cover bg-black"
             src={RAILING_VIDEO_URL}
             poster={RAILING_VIDEO_POSTER}
             controls
