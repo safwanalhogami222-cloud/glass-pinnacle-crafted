@@ -176,6 +176,7 @@ function HomePage() {
       <WhyUs />
       <Process />
       <Projects />
+      <RailingVideoTeaser />
       <BeforeAfter />
       <Testimonials />
       <About />
