@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { Play } from "lucide-react";
@@ -38,35 +38,44 @@ const WA_LINK = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(
 /** Video player with poster + click-to-load (lazy) */
 function Player({ rounded = "rounded-2xl" }: { rounded?: string }) {
   const [active, setActive] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const playVideo = () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    setActive(true);
+    void video.play().catch(() => {
+      setActive(false);
+    });
+  };
 
   return (
     <div
       className={`relative mx-auto w-full max-w-full sm:max-w-[420px] overflow-hidden ${rounded} bg-black`}
       style={{ boxShadow: "var(--shadow-luxury)" }}
     >
-      <div className="aspect-[9/16] w-full max-w-full">
-        {active ? (
-          <video
-            className="block h-full w-full max-w-full object-cover bg-black"
-            poster={RAILING_VIDEO_POSTER}
-            controls
-            playsInline
-            preload="auto"
-            controlsList="nodownload"
-            title={VIDEO_TITLE}
-            ref={(el) => {
-              if (el) void el.play().catch(() => {});
-            }}
-          >
-            <source src={RAILING_VIDEO_URL} type="video/mp4" />
-            <source src={RAILING_VIDEO_WEBM_URL} type="video/webm" />
-            <a href={RAILING_VIDEO_URL}>تنزيل الفيديو</a>
-          </video>
-        ) : (
+      <div className="relative aspect-[9/16] w-full max-w-full">
+        <video
+          ref={videoRef}
+          className="block h-full w-full max-w-full bg-black object-cover"
+          poster={RAILING_VIDEO_POSTER}
+          controls={active}
+          playsInline
+          preload="metadata"
+          controlsList="nodownload"
+          title={VIDEO_TITLE}
+          onPlay={() => setActive(true)}
+        >
+          <source src={RAILING_VIDEO_WEBM_URL} type="video/webm" />
+          <source src={RAILING_VIDEO_URL} type="video/mp4" />
+          <a href={RAILING_VIDEO_URL}>تنزيل الفيديو</a>
+        </video>
+        {!active && (
           <button
             type="button"
-            onClick={() => setActive(true)}
-            className="group relative block h-full w-full"
+            onClick={playVideo}
+            className="group absolute inset-0 block h-full w-full"
             aria-label={`تشغيل الفيديو: ${VIDEO_TITLE}`}
           >
             <img
