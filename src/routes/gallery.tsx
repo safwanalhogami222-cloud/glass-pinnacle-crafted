@@ -86,6 +86,8 @@ function GalleryPage() {
       />
       <Breadcrumbs items={[{ label: "معرض الأعمال", to: "/gallery" }]} />
 
+      <RailingVideoSection />
+
       <section className="py-12 sm:py-16 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl">
           {/* Filter bar */}
