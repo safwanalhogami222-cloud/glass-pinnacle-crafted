@@ -9,9 +9,10 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { BASE_URL, BRAND, EMAIL, HOURS, PHONE, PHONE_DISPLAY, SERVICE_AREAS, SERVICES_META, WHATSAPP } from "@/lib/site-data";
 import heroImg from "@/assets/project-storefront.jpg";
 
-const TITLE = "تركيب زجاج سيكوريت بالدمام | الرواد للزجاج — واجهات وأبواب وشاور";
+const TITLE = "تركيب زجاج سيكوريت بالدمام | تفصيل وتركيب زجاج | الرواد";
 const DESC =
-  "خدمة تركيب زجاج سيكوريت بالدمام: واجهات زجاج، أبواب زجاج سيكوريت، شاور زجاج، درابزين زجاج ومرايا. محل زجاج ومرايا وتفصيل زجاج الدمام بأسعار منافسة وضمان — اتصل 0501910923.";
+  "تفصيل وتركيب زجاج سيكوريت بالدمام: واجهات زجاج، أبواب، شاور، درابزين ومرايا بمقاسات خاصة. محل زجاج ومرايا بالدمام مع معاينة مجانية وضمان — اتصل 0501910923.";
+
 const URL = `${BASE_URL}/glass-installation-dammam`;
 
 const FEATURES = [
@@ -69,6 +70,7 @@ export const Route = createFileRoute("/glass-installation-dammam")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
@@ -126,7 +128,8 @@ export const Route = createFileRoute("/glass-installation-dammam")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "الرئيسية", item: BASE_URL },
-            { "@type": "ListItem", position: 2, name: "تركيب زجاج سيكوريت بالدمام", item: URL },
+            { "@type": "ListItem", position: 2, name: "خدمات الزجاج", item: `${BASE_URL}/services` },
+            { "@type": "ListItem", position: 3, name: "تركيب زجاج سيكوريت بالدمام", item: URL },
           ],
         }),
       },
@@ -145,8 +148,9 @@ function DammamPage() {
         goldTitle="بالدمام"
         desc="واجهات زجاج، أبواب زجاج سيكوريت، شاور، درابزين ومرايا — تفصيل وتركيب بمعايير احترافية وضمان، مع معاينة مجانية داخل الدمام والخبر والقطيف."
         image={heroImg}
+        imageAlt="واجهة زجاج سيكوريت لمحل تجاري بالدمام من تنفيذ مؤسسة الرواد للزجاج"
       />
-      <Breadcrumbs items={[{ label: "تركيب زجاج سيكوريت بالدمام" }]} />
+      <Breadcrumbs items={[{ label: "خدمات الزجاج", to: "/services" }, { label: "تركيب زجاج سيكوريت بالدمام" }]} />
 
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl grid gap-10 lg:grid-cols-[1.2fr_1fr] items-start">
@@ -163,23 +167,23 @@ function DammamPage() {
                   عاليًا للمنازل والمنشآت التجارية.
                 </p>
                 <p>
-                  تشمل خدماتنا تنفيذ واجهات زجاج الدمام للمحلات والمعارض والمطاعم والفلل، باستخدام أنظمة تثبيت حديثة مثل السبايدر والستراكشر جلاس والزجاج المزدوج
+                  تشمل خدماتنا تنفيذ <Link to="/glass-facades-dammam" className="text-[color:var(--gold)] underline decoration-[color:var(--gold)]/40 hover:decoration-[color:var(--gold)]">واجهات زجاج بالدمام</Link> للمحلات والمعارض والمطاعم والفلل، باستخدام أنظمة تثبيت حديثة مثل السبايدر والستراكشر جلاس والزجاج المزدوج
                   العازل. الواجهة الزجاجية ليست مجرد عنصر جمالي؛ فهي واجهة تسويقية لأي نشاط تجاري، ولهذا نعمل على اختيار السماكة المناسبة لكل لوح، ودراسة أحمال الرياح،
                   واستخدام سيليكون إنشائي معتمد يضمن ثبات الواجهة لسنوات طويلة دون تسريب أو ارتخاء.
                 </p>
                 <p>
-                  كما نُنفّذ أبواب زجاج سيكوريت بجميع أنواعها: أبواب مفصلية للمداخل الرئيسية، وأبواب سحاب للمكاتب والفنادق، وأبواب أوتوماتيكية بحساسات حركة للمحلات
+                  كما نُنفّذ <Link to="/services/$slug" params={{ slug: "glass-doors" }} className="text-[color:var(--gold)] underline decoration-[color:var(--gold)]/40 hover:decoration-[color:var(--gold)]">أبواب زجاج سيكوريت</Link> بجميع أنواعها: أبواب مفصلية للمداخل الرئيسية، وأبواب سحاب للمكاتب والفنادق، وأبواب أوتوماتيكية بحساسات حركة للمحلات
                   والصيدليات والعيادات. نستخدم إكسسوارات أصلية من ماركات عالمية لضمان حركة سلسة وعمر افتراضي أطول، مع إمكانية تنفيذ النقش المصنفر أو التحبيب الجزئي لإضافة
                   خصوصية دون التأثير على انتقال الضوء الطبيعي.
                 </p>
                 <p>
-                  وفي القسم السكني، يمثّل شاور زجاج الدمام واحدًا من أكثر الأعمال المطلوبة لدينا. ننفذ قواطع الشاور بدون إطار (Frameless) بمقاسات مخصصة لكل حمام، مع
-                  إكسسوارات كروم أو ذهبي أو أسود مطفي، ومعالجة نانو للزجاج تقلل ترسبات الماء والجيرية وتجعل التنظيف أسهل بكثير. إلى جانب ذلك ننفذ درابزين زجاج للأدراج
+                  وفي القسم السكني، يمثّل <Link to="/services/$slug" params={{ slug: "shower-glass" }} className="text-[color:var(--gold)] underline decoration-[color:var(--gold)]/40 hover:decoration-[color:var(--gold)]">شاور زجاج</Link> واحدًا من أكثر الأعمال المطلوبة لدينا. ننفذ قواطع الشاور بدون إطار (Frameless) بمقاسات مخصصة لكل حمام، مع
+                  إكسسوارات كروم أو ذهبي أو أسود مطفي، ومعالجة نانو للزجاج تقلل ترسبات الماء والجيرية وتجعل التنظيف أسهل بكثير. إلى جانب ذلك ننفذ <Link to="/services/$slug" params={{ slug: "glass-railings" }} className="text-[color:var(--gold)] underline decoration-[color:var(--gold)]/40 hover:decoration-[color:var(--gold)]">درابزين زجاج</Link> للأدراج
                   والشرفات والمسابح باستخدام زجاج مصفح ومقسّى وقواعد ستانلس ستيل 316 مقاومة للصدأ، وهو حل يمنح إحساسًا بالاتساع ويحفظ الإطلالة مع الحفاظ على معايير
                   السلامة.
                 </p>
                 <p>
-                  ولأننا نعمل كذلك كمحل زجاج ومرايا متكامل، نوفر خدمة تفصيل زجاج الدمام بجميع الاستخدامات: أرفف زجاجية، أسطح طاولات، حواجز مكاتب، مرايا حمامات وصالونات
+                  ولأننا نعمل كذلك كمحل زجاج ومرايا متكامل، نوفر خدمة تفصيل زجاج الدمام بجميع الاستخدامات: أرفف زجاجية، أسطح طاولات، <Link to="/services/$slug" params={{ slug: "office-glass" }} className="text-[color:var(--gold)] underline decoration-[color:var(--gold)]/40 hover:decoration-[color:var(--gold)]">حواجز مكاتب</Link>، <Link to="/services/$slug" params={{ slug: "mirrors" }} className="text-[color:var(--gold)] underline decoration-[color:var(--gold)]/40 hover:decoration-[color:var(--gold)]">مرايا</Link> حمامات وصالونات
                   ومرايا ديكورية بأشكال هندسية وإضاءة LED خلفية. جميع أعمال المرايا لدينا مُعالجة ضد الرطوبة والأكسدة لتناسب بيئة الحمامات، وتُقص حوافها بشكل مصقول أو
                   مشطوف حسب رغبة العميل وطبيعة الديكور.
                 </p>
@@ -292,7 +296,7 @@ function DammamPage() {
 
       <section className="border-t border-border bg-secondary/40 py-14 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl">
-          <div className="text-sm font-semibold text-muted-foreground mb-4">تعرف على خدماتنا بالتفصيل</div>
+          <h2 className="text-lg font-bold mb-4">تعرف على خدمات الزجاج بالتفصيل</h2>
           <div className="flex flex-wrap gap-3">
             {SERVICES_META.map((s) => (
               <Link

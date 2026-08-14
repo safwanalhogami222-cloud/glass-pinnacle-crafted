@@ -6,18 +6,20 @@ export function PageHero({
   goldTitle,
   desc,
   image,
+  imageAlt,
 }: {
   eyebrow?: string;
   title: string;
   goldTitle?: string;
   desc?: string;
   image?: string;
+  imageAlt?: string;
 }) {
   return (
     <section className="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden bg-[#0a0a0a]">
       {image && (
         <>
-          <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-40" loading="eager" />
+          <img src={image} alt={imageAlt ?? ""} className="absolute inset-0 h-full w-full object-cover opacity-40" loading="eager" />
           <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.85) 100%)" }} />
         </>
       )}
