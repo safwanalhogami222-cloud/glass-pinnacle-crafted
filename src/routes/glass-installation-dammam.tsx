@@ -9,9 +9,10 @@ import { QuoteForm } from "@/components/site/QuoteForm";
 import { BASE_URL, BRAND, EMAIL, HOURS, PHONE, PHONE_DISPLAY, SERVICE_AREAS, SERVICES_META, WHATSAPP } from "@/lib/site-data";
 import heroImg from "@/assets/project-storefront.jpg";
 
-const TITLE = "تركيب زجاج سيكوريت بالدمام | الرواد للزجاج — واجهات وأبواب وشاور";
+const TITLE = "تركيب زجاج سيكوريت بالدمام | تفصيل وتركيب زجاج | الرواد";
 const DESC =
-  "خدمة تركيب زجاج سيكوريت بالدمام: واجهات زجاج، أبواب زجاج سيكوريت، شاور زجاج، درابزين زجاج ومرايا. محل زجاج ومرايا وتفصيل زجاج الدمام بأسعار منافسة وضمان — اتصل 0501910923.";
+  "تفصيل وتركيب زجاج سيكوريت بالدمام: واجهات زجاج، أبواب، شاور، درابزين ومرايا بمقاسات خاصة. محل زجاج ومرايا بالدمام مع معاينة مجانية وضمان — اتصل 0501910923.";
+
 const URL = `${BASE_URL}/glass-installation-dammam`;
 
 const FEATURES = [
@@ -69,6 +70,7 @@ export const Route = createFileRoute("/glass-installation-dammam")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
@@ -126,7 +128,8 @@ export const Route = createFileRoute("/glass-installation-dammam")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "الرئيسية", item: BASE_URL },
-            { "@type": "ListItem", position: 2, name: "تركيب زجاج سيكوريت بالدمام", item: URL },
+            { "@type": "ListItem", position: 2, name: "خدمات الزجاج", item: `${BASE_URL}/services` },
+            { "@type": "ListItem", position: 3, name: "تركيب زجاج سيكوريت بالدمام", item: URL },
           ],
         }),
       },
@@ -145,8 +148,9 @@ function DammamPage() {
         goldTitle="بالدمام"
         desc="واجهات زجاج، أبواب زجاج سيكوريت، شاور، درابزين ومرايا — تفصيل وتركيب بمعايير احترافية وضمان، مع معاينة مجانية داخل الدمام والخبر والقطيف."
         image={heroImg}
+        imageAlt="واجهة زجاج سيكوريت لمحل تجاري بالدمام من تنفيذ مؤسسة الرواد للزجاج"
       />
-      <Breadcrumbs items={[{ label: "تركيب زجاج سيكوريت بالدمام" }]} />
+      <Breadcrumbs items={[{ label: "خدمات الزجاج", to: "/services" }, { label: "تركيب زجاج سيكوريت بالدمام" }]} />
 
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="mx-auto max-w-7xl grid gap-10 lg:grid-cols-[1.2fr_1fr] items-start">
