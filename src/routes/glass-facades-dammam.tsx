@@ -10,10 +10,11 @@ import { BASE_URL, BRAND, EMAIL, HOURS, PHONE, PHONE_DISPLAY, SERVICE_AREAS, SER
 import { GALLERY_ITEMS } from "@/lib/gallery-images";
 import heroImg from "@/assets/project-storefront.jpg";
 
-const TITLE = "تركيب واجهات زجاج بالدمام | الرواد للزجاج";
+const TITLE = "تركيب واجهات زجاج بالدمام | واجهات سيكوريت | الرواد";
 const DESC =
-  "تركيب واجهات زجاج بالدمام والخبر: واجهات زجاج سيكوريت للمحلات والمكاتب والمباني التجارية، أنظمة سبايدر وستراكشر جلاس بضمان — اتصل الآن 0501910923.";
+  "تركيب وتفصيل واجهات زجاج سيكوريت للمحلات والمكاتب والمباني في الدمام والخبر والقطيف، بأنظمة فريملس وسبايدر وستراكشر جلاس مع المعاينة والتركيب والضمان.";
 const URL = `${BASE_URL}/glass-facades-dammam`;
+
 
 const FACADE_TYPES = [
   { type: "واجهة زجاج سيكوريت شفاف", use: "محلات ومعارض العرض", note: "أعلى وضوح لعرض المنتجات وجذب المارة" },
