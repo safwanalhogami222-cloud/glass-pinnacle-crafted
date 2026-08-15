@@ -10,10 +10,11 @@ import { BASE_URL, BRAND, EMAIL, HOURS, PHONE, PHONE_DISPLAY, SERVICE_AREAS, SER
 import { GALLERY_ITEMS } from "@/lib/gallery-images";
 import heroImg from "@/assets/project-storefront.jpg";
 
-const TITLE = "تركيب واجهات زجاج بالدمام | الرواد للزجاج";
+const TITLE = "تركيب واجهات زجاج بالدمام | واجهات سيكوريت | الرواد";
 const DESC =
-  "تركيب واجهات زجاج بالدمام والخبر: واجهات زجاج سيكوريت للمحلات والمكاتب والمباني التجارية، أنظمة سبايدر وستراكشر جلاس بضمان — اتصل الآن 0501910923.";
+  "تركيب وتفصيل واجهات زجاج سيكوريت للمحلات والمكاتب والمباني في الدمام والخبر والقطيف، بأنظمة فريملس وسبايدر وستراكشر جلاس مع المعاينة والتركيب والضمان.";
 const URL = `${BASE_URL}/glass-facades-dammam`;
+
 
 const FACADE_TYPES = [
   { type: "واجهة زجاج سيكوريت شفاف", use: "محلات ومعارض العرض", note: "أعلى وضوح لعرض المنتجات وجذب المارة" },
@@ -95,16 +96,21 @@ export const Route = createFileRoute("/glass-facades-dammam")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
       { property: "og:url", content: URL },
+      { property: "og:site_name", content: BRAND },
+      { property: "og:locale", content: "ar_SA" },
       { property: "og:image", content: `${BASE_URL}${heroImg}` },
+      { property: "og:image:alt", content: "واجهة زجاج سيكوريت لمحل تجاري في الدمام" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: `${BASE_URL}${heroImg}` },
     ],
+
     links: [{ rel: "canonical", href: URL }],
     scripts: [
       {
@@ -172,7 +178,7 @@ export const Route = createFileRoute("/glass-facades-dammam")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "الرئيسية", item: BASE_URL },
-            { "@type": "ListItem", position: 2, name: "الخدمات", item: `${BASE_URL}/services` },
+            { "@type": "ListItem", position: 2, name: "خدمات الزجاج", item: `${BASE_URL}/services` },
             { "@type": "ListItem", position: 3, name: "تركيب واجهات زجاج بالدمام", item: URL },
           ],
         }),
@@ -192,8 +198,9 @@ function FacadesPage() {
         goldTitle="بالدمام"
         desc="واجهات زجاج سيكوريت للمحلات والمكاتب والمباني التجارية بأنظمة فريملس وسبايدر وستراكشر جلاس — تصميم وتصنيع وتركيب بضمان ومعاينة مجانية."
         image={heroImg}
+        imageAlt="واجهة زجاج سيكوريت شفاف لمحل تجاري منفذة في الدمام"
       />
-      <Breadcrumbs items={[{ label: "الخدمات", to: "/services" }, { label: "تركيب واجهات زجاج بالدمام" }]} />
+      <Breadcrumbs items={[{ label: "خدمات الزجاج", to: "/services" }, { label: "تركيب واجهات زجاج بالدمام" }]} />
 
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="mx-auto w-full max-w-7xl grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
@@ -263,7 +270,17 @@ function FacadesPage() {
                   كاملًا، أو شركة تعيد تصميم مكاتبها، يسعدنا أن نقدم لك استشارة فنية مجانية وعرض سعر واضح خلال وقت قصير. تواصل معنا عبر الهاتف أو واتساب وسنكون في
                   موقعك للمعاينة خلال 24 ساعة داخل الدمام والخبر والقطيف.
                 </p>
+                <p>
+                  وإلى جانب زجاج الواجهات، ننفذ بقية أعمال الزجاج التي تكمل المشروع عادة:{" "}
+                  <Link to="/glass-installation-dammam" className="text-[color:var(--gold)] underline-offset-4 hover:underline">تركيب زجاج سيكوريت بالدمام</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "glass-doors" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">أبواب زجاج سيكوريت</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "glass-railings" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">درابزين زجاج</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "shower-glass" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">شاور زجاج</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "mirrors" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">مرايا بمقاسات خاصة</Link>، و
+                  <Link to="/services/$slug" params={{ slug: "office-glass" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">قواطع زجاج للمكاتب</Link>.
+                </p>
               </div>
+
 
               <h2 className="mt-12 section-title">
                 أنواع <span className="text-gold-gradient">الواجهات الزجاجية</span> واستخدام كل نوع
@@ -403,7 +420,7 @@ function FacadesPage() {
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={p.url}
-                      alt={`${p.title} — ${p.city} | تركيب واجهات زجاج`}
+                      alt={`${p.title} — ${p.description} في ${p.city}`}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
