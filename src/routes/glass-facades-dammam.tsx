@@ -178,7 +178,7 @@ export const Route = createFileRoute("/glass-facades-dammam")({
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "الرئيسية", item: BASE_URL },
-            { "@type": "ListItem", position: 2, name: "الخدمات", item: `${BASE_URL}/services` },
+            { "@type": "ListItem", position: 2, name: "خدمات الزجاج", item: `${BASE_URL}/services` },
             { "@type": "ListItem", position: 3, name: "تركيب واجهات زجاج بالدمام", item: URL },
           ],
         }),
