@@ -198,8 +198,9 @@ function FacadesPage() {
         goldTitle="بالدمام"
         desc="واجهات زجاج سيكوريت للمحلات والمكاتب والمباني التجارية بأنظمة فريملس وسبايدر وستراكشر جلاس — تصميم وتصنيع وتركيب بضمان ومعاينة مجانية."
         image={heroImg}
+        imageAlt="واجهة زجاج سيكوريت شفاف لمحل تجاري منفذة في الدمام"
       />
-      <Breadcrumbs items={[{ label: "الخدمات", to: "/services" }, { label: "تركيب واجهات زجاج بالدمام" }]} />
+      <Breadcrumbs items={[{ label: "خدمات الزجاج", to: "/services" }, { label: "تركيب واجهات زجاج بالدمام" }]} />
 
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="mx-auto w-full max-w-7xl grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] items-start">
