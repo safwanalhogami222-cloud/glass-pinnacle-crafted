@@ -270,7 +270,17 @@ function FacadesPage() {
                   كاملًا، أو شركة تعيد تصميم مكاتبها، يسعدنا أن نقدم لك استشارة فنية مجانية وعرض سعر واضح خلال وقت قصير. تواصل معنا عبر الهاتف أو واتساب وسنكون في
                   موقعك للمعاينة خلال 24 ساعة داخل الدمام والخبر والقطيف.
                 </p>
+                <p>
+                  وإلى جانب زجاج الواجهات، ننفذ بقية أعمال الزجاج التي تكمل المشروع عادة:{" "}
+                  <Link to="/glass-installation-dammam" className="text-[color:var(--gold)] underline-offset-4 hover:underline">تركيب زجاج سيكوريت بالدمام</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "glass-doors" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">أبواب زجاج سيكوريت</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "glass-railings" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">درابزين زجاج</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "shower-glass" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">شاور زجاج</Link>،{" "}
+                  <Link to="/services/$slug" params={{ slug: "mirrors" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">مرايا بمقاسات خاصة</Link>، و
+                  <Link to="/services/$slug" params={{ slug: "office-glass" }} className="text-[color:var(--gold)] underline-offset-4 hover:underline">قواطع زجاج للمكاتب</Link>.
+                </p>
               </div>
+
 
               <h2 className="mt-12 section-title">
                 أنواع <span className="text-gold-gradient">الواجهات الزجاجية</span> واستخدام كل نوع
