@@ -420,7 +420,7 @@ function FacadesPage() {
                   <div className="relative aspect-[4/3] overflow-hidden">
                     <img
                       src={p.url}
-                      alt={`${p.title} — ${p.city} | تركيب واجهات زجاج`}
+                      alt={`${p.title} — ${p.description} في ${p.city}`}
                       loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                     />
