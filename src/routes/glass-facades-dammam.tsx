@@ -96,16 +96,21 @@ export const Route = createFileRoute("/glass-facades-dammam")({
     meta: [
       { title: TITLE },
       { name: "description", content: DESC },
+      { name: "robots", content: "index, follow" },
       { property: "og:title", content: TITLE },
       { property: "og:description", content: DESC },
       { property: "og:type", content: "article" },
       { property: "og:url", content: URL },
+      { property: "og:site_name", content: BRAND },
+      { property: "og:locale", content: "ar_SA" },
       { property: "og:image", content: `${BASE_URL}${heroImg}` },
+      { property: "og:image:alt", content: "واجهة زجاج سيكوريت لمحل تجاري في الدمام" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: TITLE },
       { name: "twitter:description", content: DESC },
       { name: "twitter:image", content: `${BASE_URL}${heroImg}` },
     ],
+
     links: [{ rel: "canonical", href: URL }],
     scripts: [
       {
