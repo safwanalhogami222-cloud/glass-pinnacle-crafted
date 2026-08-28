@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as GlassRailingsDammamRouteImport } from './routes/glass-railings-dammam'
 import { Route as GlassInstallationDammamRouteImport } from './routes/glass-installation-dammam'
 import { Route as GlassFacadesDammamRouteImport } from './routes/glass-facades-dammam'
 import { Route as GalleryRouteImport } from './routes/gallery'
@@ -28,6 +29,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlassRailingsDammamRoute = GlassRailingsDammamRouteImport.update({
+  id: '/glass-railings-dammam',
+  path: '/glass-railings-dammam',
   getParentRoute: () => rootRouteImport,
 } as any)
 const GlassInstallationDammamRoute = GlassInstallationDammamRouteImport.update({
@@ -77,6 +83,7 @@ export interface FileRoutesByFullPath {
   '/gallery': typeof GalleryRouteWithChildren
   '/glass-facades-dammam': typeof GlassFacadesDammamRoute
   '/glass-installation-dammam': typeof GlassInstallationDammamRoute
+  '/glass-railings-dammam': typeof GlassRailingsDammamRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
@@ -89,6 +96,7 @@ export interface FileRoutesByTo {
   '/gallery': typeof GalleryRouteWithChildren
   '/glass-facades-dammam': typeof GlassFacadesDammamRoute
   '/glass-installation-dammam': typeof GlassInstallationDammamRoute
+  '/glass-railings-dammam': typeof GlassRailingsDammamRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
   '/services/$slug': typeof ServicesSlugRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/gallery': typeof GalleryRouteWithChildren
   '/glass-facades-dammam': typeof GlassFacadesDammamRoute
   '/glass-installation-dammam': typeof GlassInstallationDammamRoute
+  '/glass-railings-dammam': typeof GlassRailingsDammamRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/gallery/$slug': typeof GallerySlugRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/glass-facades-dammam'
     | '/glass-installation-dammam'
+    | '/glass-railings-dammam'
     | '/services'
     | '/sitemap.xml'
     | '/gallery/$slug'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/glass-facades-dammam'
     | '/glass-installation-dammam'
+    | '/glass-railings-dammam'
     | '/sitemap.xml'
     | '/gallery/$slug'
     | '/services/$slug'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/gallery'
     | '/glass-facades-dammam'
     | '/glass-installation-dammam'
+    | '/glass-railings-dammam'
     | '/services'
     | '/sitemap.xml'
     | '/gallery/$slug'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   GalleryRoute: typeof GalleryRouteWithChildren
   GlassFacadesDammamRoute: typeof GlassFacadesDammamRoute
   GlassInstallationDammamRoute: typeof GlassInstallationDammamRoute
+  GlassRailingsDammamRoute: typeof GlassRailingsDammamRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
@@ -169,6 +182,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glass-railings-dammam': {
+      id: '/glass-railings-dammam'
+      path: '/glass-railings-dammam'
+      fullPath: '/glass-railings-dammam'
+      preLoaderRoute: typeof GlassRailingsDammamRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/glass-installation-dammam': {
@@ -261,6 +281,7 @@ const rootRouteChildren: RootRouteChildren = {
   GalleryRoute: GalleryRouteWithChildren,
   GlassFacadesDammamRoute: GlassFacadesDammamRoute,
   GlassInstallationDammamRoute: GlassInstallationDammamRoute,
+  GlassRailingsDammamRoute: GlassRailingsDammamRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }

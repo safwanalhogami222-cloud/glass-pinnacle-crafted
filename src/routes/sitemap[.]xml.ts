@@ -14,6 +14,7 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/services", changefreq: "monthly", priority: "0.9" },
           { path: "/glass-installation-dammam", changefreq: "monthly", priority: "0.9" },
           { path: "/glass-facades-dammam", changefreq: "monthly", priority: "0.9" },
+          { path: "/glass-railings-dammam", changefreq: "monthly", priority: "0.9" },
           { path: "/gallery", changefreq: "monthly", priority: "0.8" },
           { path: "/contact", changefreq: "monthly", priority: "0.7" },
           ...SERVICES_META.map((s) => ({
