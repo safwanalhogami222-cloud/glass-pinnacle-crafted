@@ -12,7 +12,10 @@ import type { ServiceMeta } from "@/lib/site-data";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }): ServiceMeta => {
-    const service = SERVICES_META.find((s) => s.slug === params.slug);
+    // Redirect placeholder/invalid URLs (e.g. /services/$slug) to the services index
+    const raw = decodeURIComponent(params.slug ?? "");
+    if (!raw || raw.startsWith("$")) throw redirect({ to: "/services", statusCode: 301 });
+    const service = SERVICES_META.find((s) => s.slug === raw);
     if (!service) throw notFound();
     return service;
   },
