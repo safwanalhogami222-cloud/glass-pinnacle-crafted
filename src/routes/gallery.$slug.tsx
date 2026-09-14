@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, redirect } from "@tanstack/react-router";
 import { ArrowLeft, MapPin } from "lucide-react";
 import { PageHero } from "@/components/site/PageHero";
 import { Breadcrumbs } from "@/components/site/Breadcrumbs";
@@ -13,7 +13,9 @@ import {
 
 export const Route = createFileRoute("/gallery/$slug")({
   loader: ({ params }) => {
-    const item = getGalleryItem(params.slug);
+    const raw = decodeURIComponent(params.slug ?? "");
+    if (!raw || raw.startsWith("$")) throw redirect({ to: "/gallery", statusCode: 301 });
+    const item = getGalleryItem(raw);
     if (!item) throw notFound();
     return { item };
   },

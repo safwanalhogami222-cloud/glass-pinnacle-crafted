@@ -1,4 +1,4 @@
-import { Link, createFileRoute, notFound } from "@tanstack/react-router";
+import { Link, createFileRoute, notFound, redirect } from "@tanstack/react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ArrowLeft, CheckCircle2, ChevronDown, Phone } from "lucide-react";
@@ -12,7 +12,10 @@ import type { ServiceMeta } from "@/lib/site-data";
 
 export const Route = createFileRoute("/services/$slug")({
   loader: ({ params }): ServiceMeta => {
-    const service = SERVICES_META.find((s) => s.slug === params.slug);
+    // Redirect placeholder/invalid URLs (e.g. /services/$slug) to the services index
+    const raw = decodeURIComponent(params.slug ?? "");
+    if (!raw || raw.startsWith("$")) throw redirect({ to: "/services", statusCode: 301 });
+    const service = SERVICES_META.find((s) => s.slug === raw);
     if (!service) throw notFound();
     return service;
   },
