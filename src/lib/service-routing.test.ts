@@ -1,4 +1,5 @@
-import { describe, expect, test } from "bun:test";
+import { describe, test } from "node:test";
+import { strict as assert } from "node:assert";
 import { findServiceBySlug } from "./service-routing";
 
 const services = [
@@ -9,19 +10,19 @@ const services = [
 
 describe("public service URL resolution", () => {
   test("literal $slug is missing, not another service", () => {
-    expect(findServiceBySlug(services, "$slug")).toBeUndefined();
+    assert.equal(findServiceBySlug(services, "$slug"), undefined);
   });
   test("glass-railings resolves to railings", () => {
-    expect(findServiceBySlug(services, "glass-railings")?.title).toBe("درابزين زجاج");
+    assert.equal(findServiceBySlug(services, "glass-railings")?.title, "درابزين زجاج");
   });
   test("glass-doors resolves to doors", () => {
-    expect(findServiceBySlug(services, "glass-doors")?.title).toBe("أبواب زجاج");
+    assert.equal(findServiceBySlug(services, "glass-doors")?.title, "أبواب زجاج");
   });
   test("glass-maintenance resolves to maintenance", () => {
-    expect(findServiceBySlug(services, "glass-maintenance")?.title).toBe("صيانة الزجاج");
+    assert.equal(findServiceBySlug(services, "glass-maintenance")?.title, "صيانة الزجاج");
   });
   test("unknown and encoded placeholder values are missing", () => {
-    expect(findServiceBySlug(services, "nonexistent-service")).toBeUndefined();
-    expect(findServiceBySlug(services, "%24slug")).toBeUndefined();
+    assert.equal(findServiceBySlug(services, "nonexistent-service"), undefined);
+    assert.equal(findServiceBySlug(services, "%24slug"), undefined);
   });
 });
