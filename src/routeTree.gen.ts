@@ -9,46 +9,21 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as GlassRailingsDammamRouteImport } from './routes/glass-railings-dammam'
-import { Route as GlassInstallationDammamRouteImport } from './routes/glass-installation-dammam'
-import { Route as GlassFacadesDammamRouteImport } from './routes/glass-facades-dammam'
-import { Route as GalleryRouteImport } from './routes/gallery'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as GlassFacadesDammamRouteImport } from './routes/glass-facades-dammam'
+import { Route as GlassInstallationDammamRouteImport } from './routes/glass-installation-dammam'
+import { Route as GlassRailingsDammamRouteImport } from './routes/glass-railings-dammam'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as ServicesSlugRouteImport } from './routes/services.$slug'
-import { Route as GallerySlugRouteImport } from './routes/gallery.$slug'
 
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GlassRailingsDammamRoute = GlassRailingsDammamRouteImport.update({
-  id: '/glass-railings-dammam',
-  path: '/glass-railings-dammam',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GlassInstallationDammamRoute = GlassInstallationDammamRouteImport.update({
-  id: '/glass-installation-dammam',
-  path: '/glass-installation-dammam',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GlassFacadesDammamRoute = GlassFacadesDammamRouteImport.update({
-  id: '/glass-facades-dammam',
-  path: '/glass-facades-dammam',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GalleryRoute = GalleryRouteImport.update({
-  id: '/gallery',
-  path: '/gallery',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactRoute = ContactRouteImport.update({
@@ -56,10 +31,40 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
+} as any)
+const GlassFacadesDammamRoute = GlassFacadesDammamRouteImport.update({
+  id: '/glass-facades-dammam',
+  path: '/glass-facades-dammam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlassInstallationDammamRoute = GlassInstallationDammamRouteImport.update({
+  id: '/glass-installation-dammam',
+  path: '/glass-installation-dammam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GlassRailingsDammamRoute = GlassRailingsDammamRouteImport.update({
+  id: '/glass-railings-dammam',
+  path: '/glass-railings-dammam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const GallerySlugRoute = GallerySlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => GalleryRoute,
 } as any)
 const ServicesIndexRoute = ServicesIndexRouteImport.update({
   id: '/',
@@ -70,11 +75,6 @@ const ServicesSlugRoute = ServicesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
   getParentRoute: () => ServicesRoute,
-} as any)
-const GallerySlugRoute = GallerySlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => GalleryRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -170,46 +170,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/glass-railings-dammam': {
-      id: '/glass-railings-dammam'
-      path: '/glass-railings-dammam'
-      fullPath: '/glass-railings-dammam'
-      preLoaderRoute: typeof GlassRailingsDammamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/glass-installation-dammam': {
-      id: '/glass-installation-dammam'
-      path: '/glass-installation-dammam'
-      fullPath: '/glass-installation-dammam'
-      preLoaderRoute: typeof GlassInstallationDammamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/glass-facades-dammam': {
-      id: '/glass-facades-dammam'
-      path: '/glass-facades-dammam'
-      fullPath: '/glass-facades-dammam'
-      preLoaderRoute: typeof GlassFacadesDammamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/gallery': {
-      id: '/gallery'
-      path: '/gallery'
-      fullPath: '/gallery'
-      preLoaderRoute: typeof GalleryRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contact': {
@@ -219,12 +184,54 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/glass-facades-dammam': {
+      id: '/glass-facades-dammam'
+      path: '/glass-facades-dammam'
+      fullPath: '/glass-facades-dammam'
+      preLoaderRoute: typeof GlassFacadesDammamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glass-installation-dammam': {
+      id: '/glass-installation-dammam'
+      path: '/glass-installation-dammam'
+      fullPath: '/glass-installation-dammam'
+      preLoaderRoute: typeof GlassInstallationDammamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/glass-railings-dammam': {
+      id: '/glass-railings-dammam'
+      path: '/glass-railings-dammam'
+      fullPath: '/glass-railings-dammam'
+      preLoaderRoute: typeof GlassRailingsDammamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/gallery/$slug': {
+      id: '/gallery/$slug'
+      path: '/$slug'
+      fullPath: '/gallery/$slug'
+      preLoaderRoute: typeof GallerySlugRouteImport
+      parentRoute: typeof GalleryRoute
     }
     '/services/': {
       id: '/services/'
@@ -239,13 +246,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/services/$slug'
       preLoaderRoute: typeof ServicesSlugRouteImport
       parentRoute: typeof ServicesRoute
-    }
-    '/gallery/$slug': {
-      id: '/gallery/$slug'
-      path: '/$slug'
-      fullPath: '/gallery/$slug'
-      preLoaderRoute: typeof GallerySlugRouteImport
-      parentRoute: typeof GalleryRoute
     }
   }
 }
